@@ -1,0 +1,54 @@
+{% extends "website/layout.html" %}
+{% block title %}
+Nuestro Equipo
+{% endblock %}
+{% block body %}
+
+<!-- panel frontal -->
+
+<section id="front_view_members">
+    <div class="container">
+        <div>
+            <h1 class="section-title">Nuestro equipo en Phoenix NSG Solutions</h1>
+            <h3>Nos enfocamos en desarrollar a nuestro equipo con capacitaciones y tutorías continuas, lo que significa que nunca dejamos de aprender y crecer. Durante nuestro programa de formacion desarrollamos habilidades en Relaciones con el Cliente, Gestion, Marketing, Ventas y más...</h3>
+        </div>
+    </div>
+</section>
+<!-- Fin del panel frontal  -->
+
+<!-- EMPLEADOS-->
+<section id="team">
+    <h2 class="encabezados">Conoce a los miembros de nuestro equipo</h2>
+    <div class="cards-container">
+        {% for miembro in miembros %}
+        <div class="card" onclick="openModal({{ miembro.id }})">
+            <img src="{{ miembro.imagen.url }}" alt="{{ miembro.nombre }}" class="card-image">
+            <h3 class="card-title">{{ miembro.nombre }}</h3>
+            <p class="card-text">{{ miembro.puesto.nombre }}</p>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal" id="modal-{{ miembro.id }}">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal({{ miembro.id }})">&times;</span>
+                <h2>{{ miembro.nombre }}</h2>
+                <img src="{{ miembro.imagen.url }}" alt="{{ miembro.nombre }}" class="modal-image">
+                <p><strong>Descripción:</strong> {{ miembro.descripcion |linebreaksbr }}</p>
+                <p><strong>Contactar</strong></p>
+                <div class="contact-info">
+                    <p>
+                        <strong>Teléfono <i class="fa fa-phone" aria-hidden="true"></i> </strong> {{ miembro.telefono }}
+                    </p>
+                    <p>
+                         <strong>Correo <i class="fa fa-envelope" aria-hidden="true"></i></strong> {{ miembro.correo }}
+                    </p>
+                </div>
+
+                
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<!--FIN EMPLEAD-->
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "website/layout.html" %}
+{% load static %}  <!-- Carga el tag static -->
+{% block title %}
+Inicio
+{% endblock %}
+
+{% block body %}
+<!-- panel frontal -->
+
+<!-- panel frontal -->
+
+<section id="front_view">
+    <div class="container">
+        <div class="content">
+            <h1 class="section-title">En Phoenix NSG Solutions</h1>
+            <h3>Impulsamos marcas y empresas, convirtiendo tu equipo de marketing en un motor imparable en ventas.</h3>
+        </div>
+        
+        <div class="miembros-container">
+            {% for miembro in miembros %}
+            <div class="miembro" data-id="{{ forloop.counter0 }}">
+                <div class="miembro-overlay">
+                    <img src="{{ miembro.imagen.url }}" alt="{{ miembro.nombre }}">
+                    <p class="descripcion">
+                        <span class="quote-mark">&ldquo;</span>{{ miembro.descripcion_corta }}<span class="quote-mark">&rdquo;</span>
+                    </p>
+                    <p class="miembro-puesto"><strong>{{ miembro.nombre }}</strong><br>{{ miembro.puesto.nombre }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- Fin del panel frontal  -->
+
+<!--SERVICIOS-->
+<section id="nuestros_servicios">
+    <h2 class="encabezados">Nuestros Servicios</h2>
+    <div class="card-container-services">
+        {%for servicio in servicios%}
+        <div class="card-services">
+            <div class="front-content-services">
+                <p>{{servicio.nombre}}</p>
+                <img src="{{ servicio.imagen.url }}" alt="">
+            </div>
+            <div class="content-services">
+                <p class="heading-services">{{servicio.nombre}}</p>
+                <p class="descripcion-services">
+                    {{servicio.descripcion}}
+                </p>
+            </div>
+        </div>
+        {%endfor%}
+      </div>
+</section>
+
+
+<!--PARTNERS-->
+<section id="partners">
+    <div class="partners-container-1">
+        <h2 class="encabezados">Nuestros Partners</h2>
+    </div>
+    <div class="partners-container-2">
+        <div class="partners-carousel">
+            {%for partner in partners%}
+            <div class="partner">
+                <img src="{{ partner.imagen.url }}" alt="Partner 1">
+                <p class="partner-title">{{partner.nombre}}</p>
+                <p class="partner-desc">{{partner.descripcion}}
+                    {%if partner.sitio_web%}
+                    <a class="link-partner" href="{{partner.sitio_web}}" target="_blank">Conoce más sobre ellos aquí</a>
+                    {%endif%}
+                </p>
+            </div>
+           {%endfor%}
+        </div>
+    </div>
+    
+</section>
+
+
+
+
+{% endblock %}

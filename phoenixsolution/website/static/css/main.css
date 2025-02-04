@@ -1,0 +1,1009 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;600&display=swap");
+/* globales */
+/*color main: #dc5314;*/
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+	font-size: 20px;
+	font-family: "Montserrat", sans-serif;
+}
+a {
+	text-decoration: none;
+}
+p {
+	font-size: 0.9rem;
+	line-height: 1.2rem;
+	text-align: center;
+}
+h3 {
+    font-size: 1.5rem; /* Tamaño del texto */
+    line-height: 2rem; /* Espaciado entre líneas ajustado */
+    text-align: center; /* Centrar el texto */
+    color: whitesmoke; /* Color del texto */
+    letter-spacing: 0.05rem; /* Espaciado entre caracteres */
+}
+
+ul {
+	font-size: 0.9rem;
+	list-style: none;
+	text-align: justify;
+}
+.section-title {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: rgb(255, 236, 21);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-align: center;
+}
+
+.container {
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    padding: 0 25px;
+}
+/* fin globales */
+
+
+
+/* Header section */
+#header {
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: auto;
+}
+#header .header {
+	min-height: 7vh;
+	height: 50px;
+	background-color: rgba(31, 30, 30, 0.24);
+	transition: 0.3s ease background-color;
+}
+
+#header .nav-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	max-width: 1800px;
+	padding: 10px 10px;
+}
+#header .nav-list ul {
+	list-style: none;
+	position: absolute;
+	background-color: #555555f5;
+	width: 100vw;
+	height: 100vh;
+	left: 100%;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center; /* Centra los elementos verticalmente */
+	align-items: center; /* Centra los elementos horizontalmente */
+	z-index: 1;
+	overflow-x: hidden;
+	transition: 0.5s ease left;
+	padding: 0; /* Asegúrate de que no haya padding adicional */
+	box-sizing: border-box; /* Asegúrate de que el padding no afecte el tamaño */
+}
+
+#header .nav-list ul.active {
+	left: 0%;
+}
+#header .nav-list ul a {
+	font-size: 1.8rem;
+	font-weight: 120;
+	letter-spacing: 0.05rem;
+	text-decoration: none;
+	color: white;
+	text-transform: uppercase;
+	padding: 12px;
+	display: flex; /* Cambiado de block a flex */
+	justify-content: center; /* Centra horizontalmente */
+	align-items: center; /* Centra verticalmente */
+	/* text-align: center; Centra el texto dentro del elemento */
+	/* margin-top: 15px; */
+}
+
+#header .nav-list ul a::after {
+	content: attr(data-after);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	color: #f0f8ff05;
+	font-size: 5rem;
+	letter-spacing: 50px;
+	z-index: -1;
+	transition: 0.3s ease letter-spacing;
+}
+#header .nav-list ul li:hover a::after {
+	transform: translate(-50%, -50%) scale(1);
+	letter-spacing: initial;
+}
+#header .nav-list ul li:hover a {
+	color: #f6d2c2;
+	text-shadow: 0 0 5px #f1c80f, 0 0 10px #ff0000, 0 0 15px #f4e7dc; /* Simula el brillo */
+    transition: 0.4s ease; /* Agrega una transición suave */
+}
+#header .hamburger {
+	height: 60px;
+	width: 60px;
+	display: inline-block;
+	border: 3px solid  rgb(245, 139, 0);
+	border-radius: 50%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 100;
+	cursor: pointer;
+	transform: scale(0.8);
+}
+#header .hamburger:after {
+	position: absolute;
+	content: '';
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	border: 3px solid rgb(254, 54, 4);
+	animation: hamburger_puls 1s ease infinite;
+}
+#header .hamburger .bar {
+	height: 2px;
+	width: 30px;
+	position: relative;
+	background-color: rgb(245, 139, 0);
+	z-index: -1;
+}
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	background-color:  rgb(245, 139, 0);
+	transition: 0.3s ease;
+	transition-property: top, bottom;
+}
+#header .hamburger .bar::after {
+	top: 8px;
+}
+#header .hamburger .bar::before {
+	bottom: 8px;
+}
+#header .hamburger.active .bar::before {
+	bottom: 0;
+}
+#header .hamburger.active .bar::after {
+	top: 0;
+}
+.brand img {
+    position: relative; /* Permite ajustar la posición */
+    top: 4px; /* Baja la imagen 5px (ajusta este valor según necesites) */
+}
+.brand-text {
+	top: -10px;
+	margin-left: 5px;
+    font-size: 1.5rem; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita para mayor impacto */
+    color: rgb(255, 255, 255); /* Letras en blanco */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    position: relative; /* Necesario para posicionar el efecto detrás */
+}
+
+/* Iluminación detrás de las letras */
+.brand-text::before {
+    content: ''; /* Elemento pseudo para el brillo */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Envía el brillo detrás del texto */
+    background: linear-gradient(50deg, red, orange, yellow, red); /* Gradiente para la iluminación */
+    filter: blur(5px); /* Difumina el gradiente para crear el efecto de iluminación */
+    opacity: 0.1; /* Controla la intensidad del brillo */
+    animation: glowing 3s infinite; /* Movimiento dinámico del gradiente */
+}
+
+/* Animación del gradiente */
+@keyframes glowing {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+@keyframes hamburger_puls {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(1.4);
+	}
+}
+@media (max-width: 768px) {
+    .brand-text {
+        font-size: 1rem; /* Reducir el tamaño del texto en pantallas pequeñas */
+    }
+}
+/* End Header section */
+
+
+
+
+
+
+/*banner*/
+
+
+#front_view_members {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    z-index: 1; /* Asegura que el contenido esté visible */
+    overflow: hidden; /* Evita que el pseudo-elemento salga del contenedor */
+	animation: changeBackground 12s infinite; /* Animación de cambio de imágenes */
+
+}
+
+#front_view_members::before {
+    content: ''; /* Necesario para mostrar el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.78); /* Capa negra con opacidad */
+    z-index: -1; /* Coloca la capa debajo del contenido pero sobre la imagen */
+}
+
+@keyframes changeBackground {
+    0% { background-image: url('../images/team.jpg'); }
+    33% { background-image: url('../images/team2.jpg'); }
+    66% { background-image: url('../images/team3.jpg'); }
+    100% { background-image: url('../images/team.jpg'); }
+}
+
+/*fin banner*/
+
+/* footer */
+
+#footer {
+    margin: top 15px;
+    background-image: linear-gradient(60deg, #0b150d 0%,rgb(43, 14, 0) 50%, #0b150d 100%);
+}
+#footer .footer {
+	min-height: 90px;
+	flex-direction: column;
+	padding-top: 25px;
+	padding-bottom: 10px;
+}
+#footer p {
+	color: white;
+	font-weight: 300;
+	font-size: 1rem;
+}
+
+/* fin footer*/
+
+/* medias querys para tablets */
+@media only screen and (min-width: 900px) {
+
+	.section-title {
+		font-size: 2.4rem;
+	}
+	p,
+	ul {
+		font-size: 1.3rem;
+		line-height: 1.8rem;
+	}
+}
+/* media para desktop */
+@media only screen and (min-width:1200px){
+	/* header */
+	#header .hamburger {
+		display: none;
+	}
+	#header .nav-list ul {
+		position: initial;
+		display: block;
+		height: auto;
+		width: fit-content;
+		background-color: transparent;
+	}
+	#header .nav-list ul li {
+		display: inline-block;
+	}
+	#header .nav-list ul li a {
+		font-size: 1.2rem;
+	}
+	#header .nav-list ul a:after {
+		display: none;
+	}
+	/* End header */
+}
+
+/* seccion header fuentes*/
+/* Media query para pantallas más pequeñas */
+@media (max-width: 899px) {
+    .section-title {
+        font-size: 1.3rem; /* Reduce el tamaño del título */
+    }
+    h3 {
+        font-size: 1.1rem; /* Reduce el tamaño del subtítulo */
+        line-height: 1.2rem; /* Ajusta el espaciado */
+    }
+}
+
+/* Media query para pantallas muy pequeñas (como móviles) */
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.1rem; /* Tamaño aún más pequeño para móviles */
+    }
+
+    h3 {
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+}
+
+/*cards*/
+/* General Styles */
+#team {
+    padding: 2rem;
+    background-color: #f9f9f9;
+    text-align: center;
+	margin-bottom: 35px;
+}
+
+.encabezados {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #333;
+	font-weight: 600;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;
+}
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .encabezados {
+        font-size: 1.6rem; /* Reduce el tamaño del texto en tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .encabezados {
+        font-size: 1.2rem; /* Tamaño aún menor en celulares */
+    }
+}
+/* Card Grid */
+.cards-container {
+    display: grid; /* Usar un diseño de cuadrícula */
+    gap: 20px; /* Espaciado entre tarjetas */
+    justify-content: center; /* Centrar las tarjetas horizontalmente */
+    padding: 20px;
+	grid-template-columns: repeat(1, 1fr); /* Por defecto, 1 tarjeta por fila */
+
+
+}
+
+/* Estilo de las tarjetas */
+.card {
+    background: #555;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    width: 100%; /* Asegura que la tarjeta se ajuste al ancho de la columna */
+    cursor: pointer;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-image {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Mantiene una proporción de 1:1 (cuadrada) */
+    object-fit: cover; /* Recorta la imagen si es más grande */
+    border-radius: 10px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin: 1rem 0 0.5rem;
+}
+
+.card-text {
+    color: rgb(245, 139, 0);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 80%; /* Ocupar el 80% del ancho */
+    max-width: 600px; /* Máximo de ancho en pantallas grandes */
+    animation: fadeIn 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Scroll si el contenido es demasiado largo */
+    max-height: 90vh; /* Máximo alto para que no desborde */
+    position: relative; /* Asegura que el botón de cerrar siempre esté visible */
+}
+
+/* Estiliza el scroll dentro del modal */
+.modal-content::-webkit-scrollbar {
+    width: 8px; /* Grosor más delgado */
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background-color: #555;/*estiloscroll*/
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color del fondo del scrollbar */
+    border-radius: 10px;
+}
+
+/* Imagen dentro del modal */
+.modal-image {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Proporción cuadrada */
+    object-fit: cover; /* Recorta para llenar el contenedor */
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+/* Texto alineado a la izquierda y con mejor legibilidad */
+.modal-content h2 {
+    text-align: center; /* Mantiene el título centrado */
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.modal-content p {
+    text-align: justify; /* Justifica la descripción */
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 1rem; /* Espaciado entre párrafos */
+}
+/* Estilo para los títulos dentro de <strong> */
+.modal-content p strong {
+    display: block; /* Hace que <strong> se comporte como un bloque separado */
+    text-align: center; /* Centra el texto */
+    font-size: 1.2rem; /* Tamaño más grande */
+    font-weight: bold;
+    color: #222; /* Color más oscuro */
+    margin-bottom: 0.5rem; /* Espaciado debajo del título */
+}
+
+/* Estilo para la sección de contacto */
+.contact-info {
+    display: flex;
+    justify-content: space-between; /* Separa los elementos */
+    align-items: center;
+    text-align: left;
+    padding: 10px 20px;
+	gap: 15px; /* Espacio entre elementos */
+
+}
+
+/* Estilo de los íconos */
+.contact-info i {
+    color: #e63946; /* Rojo */
+    font-size: 1.2rem;
+}
+
+/* Estilo de los párrafos */
+.contact-info p {
+    font-size: 1rem;
+    color: #333;
+    margin: 0;
+	text-align: center;
+}
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column; /* Cambia a columna en móviles */
+        align-items: flex-start; /* Alinea el texto a la izquierda */
+    }
+
+    .contact-info p {
+        width: 100%; /* Ocupa todo el ancho */
+    }
+}
+
+/* Botón de cierre mejorado */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: white;
+    background: red;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.close-button:hover {
+    background: darkred;
+}
+
+/* Media Queries para responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%; /* En móviles ocupa más espacio */
+        padding: 1.5rem;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+
+
+/* Media Queries */
+@media (min-width: 768px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 tarjetas por fila en tablets */
+    }
+}
+
+@media (min-width: 1024px) {
+    .cards-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 tarjetas por fila en pantallas grandes */
+    }
+}
+
+/*fin cards*/
+
+/*INDEX STYLES*/
+#front_view {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh; /* Ajusta la altura según sea necesario */
+    background-image: repeating-linear-gradient(
+    -45deg,
+    rgb(58, 38, 0) 0,
+    transparent 35px,
+    rgb(48, 13, 0) 35px,
+    transparent 60px,
+    rgb(0, 0, 0) 420px,
+    transparent 240px
+  );
+  background-color: rgb(0, 0, 0);
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+.content {
+    width: 50%; /* Ocupa la mitad izquierda */
+    padding-right: 20px; /* Espacio entre el contenido y la imagen */
+    color: white; /* Color del texto para que contraste con el fondo */
+    opacity: 0; /* Empieza invisible */
+    animation: fadeInTitle 1.8s ease-out forwards; /* Animación fade-in */
+}
+
+/* Definición de la animación fade-in */
+@keyframes fadeInTitle {
+    0% {
+        opacity: 0; /* Comienza invisible */
+    }
+    100% {
+        opacity: 1; /* Finaliza completamente visible */
+    }
+}
+
+.miembros-container {
+    width: 30%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.miembro {
+    display: none;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.miembro.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.miembro-overlay {
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.miembro img {
+    height: 240px;
+    border-radius: 50%;
+    border: 3px solid #555;
+    margin-bottom: 25px;
+    object-fit: cover;
+    background: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.miembro .descripcion {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #333;
+    margin-bottom: 10px;
+    background: rgba(201, 200, 200, 0.786);
+    padding: 5px 5px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+}
+
+.miembro .descripcion .quote-mark {
+    font-size: 2.1rem;
+    font-weight: bold;
+    color: #f4c430; /* Color dorado para la comilla */
+    vertical-align: top;
+    margin-right: 5px;
+}
+
+.miembro .miembro-puesto {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 7px;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.miembro .miembro-puesto strong {
+    color: #ff8400;
+    font-size: 1.2rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1024px) and (orientation: landscape), (max-aspect-ratio: 16/9) {
+    .miembro img {
+        height: 145px;
+        border: 2px solid #555;
+    }
+    .miembro .descripcion {
+        font-size: 0.7rem;
+        padding: 3px 5px;
+        background: rgba(255, 255, 255, 0.9);
+    }
+    .miembro .miembro-puesto{
+        font-size: 0.7rem;
+    }
+    .miembro .miembro-puesto strong{
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+    .miembros-container {
+        display: none;
+    }
+    .content {
+        width: 100%;
+        padding-right: 0;
+    }
+}
+
+/*nuestros servicios section*/
+#nuestros_servicios {
+    padding: 2rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.card-container-services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 1500px;
+    margin-top:25px;
+}
+
+.card-services {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+
+
+}
+
+.card-services .front-content-services {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Asegura que el texto y la imagen se acomoden en columna */
+    align-items: center;
+    justify-content: center;
+    transition: all 1s cubic-bezier(0.23, 1, 0.320, 1);
+    padding: 15px; /* Agrega espacio alrededor del contenido */
+    text-align: center;
+}
+.card-services .front-content-services img {
+    max-width: 60%; /* Ajusta la imagen al ancho del contenedor */
+    max-height: 40%; /* Limita la altura para evitar que ocupe demasiado espacio */
+    height: auto;
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    border-radius: 8px; /* Agrega bordes redondeados para un mejor diseño */
+    margin-top: 30px;
+}
+
+.card-services .front-content-services p {
+    font-size: 1.2rem;
+    font-weight: 700;
+    opacity: 1;
+    background-color: #555;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 1s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card-services .content-services {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    background: linear-gradient(-45deg, rgb(58, 38, 0) 0%, rgb(48, 13, 0) 100%);
+    color: #e8e8e8;
+    padding: 20px;
+    line-height: 1.5;
+    border-radius: 5px;
+    pointer-events: none;
+    transform: translatex(96%);
+    transition: all 1s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card-services .content-services .heading-services {
+    font-size: 1rem;
+    font-weight: 700;
+}
+.card-services .content-services .descripcion-services{
+    font-size: 0.9rem;
+}
+
+
+.card-services:hover .content-services {
+    transform: translateY(0);
+}
+
+.card-services:hover .front-content-services {
+    transform: translateX(20%);
+}
+
+.card-services:hover .front-content-services p {
+    opacity: 0;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .card-container-services {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Responsivo para pantallas grandes */
+@media (min-width: 1024px) {
+    .card-container-services {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/*PARTNERS SECTION*/
+#partners {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem;
+    background-color: #f9f9f9;
+    
+}
+
+/* 📌 Contenedor del título - 30% en PC */
+.partners-container-1 {
+    flex: 1;
+    max-width: 22%;
+    text-align: left;
+}
+
+/* 📌 Contenedor de los partners - 70% en PC */
+.partners-container-2 {
+    flex: 2;
+    max-width: 78%;
+}
+
+/* 📌 Estilos generales */
+.encabezados {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+/* 📌 Carrusel de partners */
+.partners-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.partner {
+    text-align: center;
+    max-width: 60%;
+    padding: 15px;
+    /* background: white; */
+    /* border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
+    transition: transform 0.3s ease;
+}
+
+.partner:hover {
+    transform: translateY(-5px);
+}
+
+.partner-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.partner img {
+    max-width: 30%; /* Tamaño normal en pantallas grandes */
+    filter: grayscale(100%);
+    transition: filter 0.3s, max-width 0.3s ease;
+    border-radius: 10px; /* Contornos más suaves */
+}
+
+.partner img:hover {
+    filter: grayscale(0%);
+}
+
+.partner-desc {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 10px;
+}
+a.link-partner {
+    color:#ff680b;
+    padding: 8px;
+    /* text-decoration:none; */
+  }
+
+/* 📱 RESPONSIVO: En pantallas pequeñas (móviles) */
+@media (max-width: 1024px) {
+    #partners {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .partners-container-1,
+    .partners-container-2 {
+        max-width: 100%;
+    }
+
+    .partners-container-1 {
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .partner {
+        max-width: 90%; /* Ocupará casi toda la pantalla */
+        padding: 10px; /* Menos margen */
+    }
+
+    .partner img {
+        max-width: 90%; /* Imagen ocupa el 90% del contenedor */
+        border-radius: 5px; /* Bordes más pequeños */
+    }
+
+    .partner-title {
+        font-size: 1rem; /* Reducir tamaño de título */
+    }
+
+    .partner-desc {
+        font-size: 0.8rem; /* Reducir tamaño del texto */
+    }
+
+    .link-partner {
+        font-size: 0.85rem;
+    }
+}
