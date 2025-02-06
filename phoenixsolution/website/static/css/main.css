@@ -32,7 +32,7 @@ ul {
 	text-align: justify;
 }
 .section-title {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
     font-weight: 600;
     color: rgb(255, 236, 21);
     margin-bottom: 10px;
@@ -288,7 +288,7 @@ ul {
 
 #footer {
     margin: top 15px;
-    background-image: linear-gradient(60deg, #0b150d 0%,rgb(43, 14, 0) 50%, #0b150d 100%);
+    background-image: linear-gradient(60deg, #0b150d 0%,rgb(34, 12, 0) 50%, #0b150d 100%);
 }
 #footer .footer {
 	min-height: 90px;
@@ -345,7 +345,7 @@ ul {
 /* Media query para pantallas más pequeñas */
 @media (max-width: 899px) {
     .section-title {
-        font-size: 1.3rem; /* Reduce el tamaño del título */
+        font-size: 1.5rem; /* Reduce el tamaño del título */
     }
     h3 {
         font-size: 1.1rem; /* Reduce el tamaño del subtítulo */
@@ -356,7 +356,7 @@ ul {
 /* Media query para pantallas muy pequeñas (como móviles) */
 @media (max-width: 480px) {
     .section-title {
-        font-size: 1.1rem; /* Tamaño aún más pequeño para móviles */
+        font-size: 1.2rem; /* Tamaño aún más pequeño para móviles */
     }
 
     h3 {
@@ -399,9 +399,9 @@ ul {
 /* Card Grid */
 .cards-container {
     display: grid; /* Usar un diseño de cuadrícula */
-    gap: 20px; /* Espaciado entre tarjetas */
+    gap: 5px; /* Espaciado entre tarjetas */
     justify-content: center; /* Centrar las tarjetas horizontalmente */
-    padding: 20px;
+    padding: 15px;
 	grid-template-columns: repeat(1, 1fr); /* Por defecto, 1 tarjeta por fila */
 
 
@@ -414,9 +414,10 @@ ul {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
     overflow: hidden;
-    width: 100%; /* Asegura que la tarjeta se ajuste al ancho de la columna */
+    width: 95%; /* Asegura que la tarjeta se ajuste al ancho de la columna */
     cursor: pointer;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .card:hover {
@@ -778,17 +779,17 @@ ul {
 
 .card-container-services {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 20px;
     justify-content: center;
     align-items: center;
     margin: auto;
-    max-width: 1500px;
+    max-width: 1400px;
     margin-top:25px;
 }
 
 .card-services {
-    width: 100%;
+    width: 93%;
     height: 400px;
     position: relative;
     border-radius: 10px;
@@ -1007,3 +1008,118 @@ a.link-partner {
         font-size: 0.85rem;
     }
 }
+
+
+
+/*CONTACT SECTION*/
+  
+#contact {
+    width: 100%;
+    background-image: linear-gradient(60deg, #0b150d 0%, rgb(34, 12, 0) 50%, #0b150d 100%);
+    padding: 40px 25px;
+    text-align: center;
+  }
+
+  #contact .encabezados {
+    color: #FFD700;
+    font-size: 2rem;
+    margin-bottom: 32px;
+  }
+
+  .contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15%;
+  }
+
+  .form-horizontal {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-control,
+  textarea {
+    width: 100%;
+    background-color: #333;
+    color: #FFD700;;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+  }
+
+  .send-button {
+    background-color: #FFD700;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    width: 100%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .send-button:hover {
+    background-color: #fe8700;
+  }
+
+  .direct-contact-container {
+    margin-top: 20px;
+    color: #ccc;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    font-size: 2.5rem;
+  }
+
+  .contact-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .list-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .list-item a{
+    color: #555;
+  }
+  .list-item a:hover{
+    color: #f1c80f;
+  }
+
+  .social-media-list {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .contact-icon {
+    font-size: 1.8rem;
+    color:#555;
+  }
+
+  .contact-icon:hover {
+    color:#FFD700;
+    transition: color 0.3s ease;
+  }
+  
+  hr {
+    border-color: rgba(255, 255, 255, 0.5);
+    margin: 10px 0;
+  }
+  @media screen and (max-width: 768px) {
+    .contact-wrapper {
+      flex-direction: column;
+    }
+  }

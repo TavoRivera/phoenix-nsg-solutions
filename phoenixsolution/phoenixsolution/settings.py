@@ -26,9 +26,9 @@ SECRET_KEY = "django-insecure-0qx1e2z1-lfvd*axbg88tlg!a$zv04uzjqkz+2q&7m1d(6npih
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-CSRF_TRUSTED_ORIGINS = ['https://localhost:8000', 'http://127.0.0.1:8000']
+CSRF_TRUSTED_ORIGINS = ['https://localhost:8000', 'http://127.0.0.1:8000',   "https://urban-space-enigma-5xwg5x7g9gx2vqwp-8000.app.github.dev"]
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost","urban-space-enigma-5xwg5x7g9gx2vqwp-8000.app.github.dev"]
 
 
 # Application definition
@@ -107,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "es-ni"
 
 TIME_ZONE = "UTC"
 
@@ -129,3 +129,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Ruta donde se almacenan en el se
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'octavioriv02@gmail.com'
+EMAIL_HOST_PASSWORD = 'lozetlsyecgdsef'
+EMAIL_USE_TLS = True

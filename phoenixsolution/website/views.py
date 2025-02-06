@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Miembro, Puesto, Servicio, Partner
 from django.views.decorators.csrf import csrf_exempt
@@ -26,3 +26,17 @@ def members(request):
     return render(request, "website/members.html", {
         "miembros": miembros,  # Pasamos la lista modificada
     })
+
+def contact(request):
+    if request.method == 'POST':
+        name = request.POST["name"]
+        email = request.POST["email"]
+        message = request.POST["message"]
+
+        # Depuración: Imprimir los datos en la consola del servidor
+        print(f"📩 Nombre: {name}, Email: {email}, Mensaje: {message}")
+
+        # Retornar un mensaje en la pantalla para confirmar
+        return HttpResponse("Formulario enviado correctamente.")
+
+    return render(request, "website/index.html")

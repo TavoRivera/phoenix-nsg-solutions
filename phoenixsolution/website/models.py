@@ -1,8 +1,5 @@
 from django.db import models
-import base64
-from django.contrib.auth.models import AbstractUser
-from cryptography.fernet import Fernet
-from django.conf import settings
+
 
 class Puesto(models.Model):
     nombre = models.CharField(max_length=100, unique=True)
@@ -44,20 +41,3 @@ class Partner(models.Model):
     def __str__(self):
         return self.nombre
 
-# Genera una clave de cifrado y guárdala en settings.py
-if not hasattr(settings, "SECRET_KEY_ENCRYPTION"):
-    settings.SECRET_KEY_ENCRYPTION = Fernet.generate_key()
-
-cipher = Fernet(settings.SECRET_KEY_ENCRYPTION)
-
-class CustomUser(AbstractUser):
-    email_host = models.EmailField(blank=True, null=True)
-    email_password_encrypted = models.BinaryField(blank=True, null=True)  # Guardamos la contraseña cifrada
-
-    def set_email_password(self, password):
-        """Cifra la contraseña antes de guardarla"""
-        self.email_password_encrypted = cipher.encrypt(password.encode())
-
-    def get_email_password(self):
-        """Descifra la contraseña cuando sea necesario"""
-        return cipher.decrypt(self.email_password_encrypted).decode() if self.email_password_encrypted else None

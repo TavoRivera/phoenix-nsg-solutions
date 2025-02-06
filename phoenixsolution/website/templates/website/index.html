@@ -78,7 +78,64 @@ Inicio
     
 </section>
 
+<section id="contact">
+  <p class="encabezados">Contacto</p>
+  <div class="contact-wrapper">
+    {% if messages %}
+        {% for message in messages%}
+            <div class="alert" role="alert">
+                {{message}}
+            </div>
+        {%endfor%}
+    {% endif %}
 
+    <form action="{% url 'contact' %}" method="POST" id="contact-form" class="form-horizontal">
+    <!-- <form action="https://urban-space-enigma-5xwg5x7g9gx2vqwp-8000.app.github.dev/contact/" method="POST" id="contact-form" class="form-horizontal"> -->
+
+        {% csrf_token %}
+        <input type="text" class="form-control" id="name" placeholder="Nombre" name="name" required>
+        <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" name="email" required>
+        <textarea class="form-control" placeholder="Mensaje" name="message" required></textarea>
+        <button class="send-button" id="submit" type="submit"  value="Send email">ENVIAR</button>
+    </form>
+    <!-- <form action="/contact/" method="POST" id="contact-form" class="form-horizontal">
+        {% csrf_token %}
+        
+        <input type="text" class="form-control" id="name" placeholder="Nombre" name="name" required>
+        <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" name="email" required>
+        <textarea class="form-control" placeholder="Mensaje" name="message" required></textarea>
+        
+        <button class="send-button" id="submit" type="submit">ENVIAR</button>
+    </form> -->
+    
+    <script>
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+        console.log("Formulario intentando enviarse...");  // Verificar en consola
+    });
+    </script>
+    
+
+    <div class="direct-contact-container">
+      <ul class="contact-list">
+        <li class="list-item"><i class="fa fa-map-marker"></i> <span>Loose weight, 1490 W 49th Pl, Hialeah, FL 33012, EE. UU.</span></li>
+        <li class="list-item"><i class="fa fa-phone"></i> <a href="tel:1-307-299-3885">(307) 299 - 3885</a></li>
+        <li class="list-item"><i class="fa fa-envelope"></i> <a href="mailto:Lphoenixnsg@gmail.com">Lphoenixnsg@gmail.com</a></li>
+      </ul>
+      <hr>
+      <ul class="social-media-list">
+        <li><a href="#"><i class="bi bi-github contact-icon"></i></a></li>
+        <li><a href="#"><i class="bi bi-facebook contact-icon"></i></a></li>
+        <li><a href="#"><i class="bi bi-instagram contact-icon"></i></a></li>
+        <li><a href="#"><i class="bi bi-tiktok contact-icon"></i></a></li>
+
+    </ul>
+      <hr>
+    </div>
+  </div>
+</section>
+
+    
+    
 
 
 {% endblock %}
