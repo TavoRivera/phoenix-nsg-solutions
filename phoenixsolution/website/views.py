@@ -3,7 +3,10 @@ from django.http import HttpResponse
 from .models import Miembro, Puesto, Servicio, Partner
 from django.views.decorators.csrf import csrf_exempt
 from .templatetags.custom_filters import format_phone
-
+from django.template.loader import render_to_string
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.contrib import messages
 
 # Create your views here.
 @csrf_exempt
@@ -32,11 +35,39 @@ def contact(request):
         name = request.POST["name"]
         email = request.POST["email"]
         message = request.POST["message"]
+        subject = f"Nueva consulta de {name} recibida desde el sitio web"
 
-        # Depuración: Imprimir los datos en la consola del servidor
+        # Depuración: Ver datos en consola
         print(f"📩 Nombre: {name}, Email: {email}, Mensaje: {message}")
 
-        # Retornar un mensaje en la pantalla para confirmar
-        return HttpResponse("Formulario enviado correctamente.")
+        # Renderizar la plantilla del email
+        template = render_to_string('website/email.html', {
+            'name': name,
+            'email': email,
+            'subject': subject,
+            'message': message
+        })
+
+        try:
+            emailSender = EmailMessage(
+                subject,
+                template,
+                settings.EMAIL_HOST_USER,
+                ['octavioriv02@gmail.com']
+            )
+            emailSender.content_subtype = 'html'
+            emailSender.send()
+            
+            # Mensaje de éxito
+            messages.success(request, 'Se ha enviado tu consulta. Pronto nos pondremos en contacto contigo.')
+        
+        except Exception as e:
+            # Mensaje de error
+            messages.error(request, f'❌ Error al enviar el mensaje: {str(e)}')
+
+        return redirect('index')
 
     return render(request, "website/index.html")
+
+
+

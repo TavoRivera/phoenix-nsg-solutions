@@ -81,16 +81,8 @@ Inicio
 <section id="contact">
   <p class="encabezados">Contacto</p>
   <div class="contact-wrapper">
-    {% if messages %}
-        {% for message in messages%}
-            <div class="alert" role="alert">
-                {{message}}
-            </div>
-        {%endfor%}
-    {% endif %}
 
-    <form action="{% url 'contact' %}" method="POST" id="contact-form" class="form-horizontal">
-    <!-- <form action="https://urban-space-enigma-5xwg5x7g9gx2vqwp-8000.app.github.dev/contact/" method="POST" id="contact-form" class="form-horizontal"> -->
+    <form action="{% url 'contact' %}" method="POST" class="form-horizontal">
 
         {% csrf_token %}
         <input type="text" class="form-control" id="name" placeholder="Nombre" name="name" required>
