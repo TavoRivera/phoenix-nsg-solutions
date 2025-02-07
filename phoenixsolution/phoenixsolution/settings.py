@@ -33,7 +33,13 @@ CSRF_TRUSTED_ORIGINS = [
     "https://phoenix-solution-webpage.onrender.com"  # Agregar https:// aquí
 ]
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost","urban-space-enigma-5xwg5x7g9gx2vqwp-8000.app.github.dev","https://phoenix-solution-webpage.onrender.com"]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "urban-space-enigma-5xwg5x7g9gx2vqwp-8000.app.github.dev",
+    "phoenix-solution-webpage.onrender.com",
+    "*",  # Esto permite cualquier host (solo para pruebas)
+]
 
 
 # Application definition
