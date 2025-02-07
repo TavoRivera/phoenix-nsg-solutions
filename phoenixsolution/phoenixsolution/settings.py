@@ -26,9 +26,9 @@ SECRET_KEY = "django-insecure-0qx1e2z1-lfvd*axbg88tlg!a$zv04uzjqkz+2q&7m1d(6npih
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-CSRF_TRUSTED_ORIGINS = ['https://localhost:8000', 'http://127.0.0.1:8000',   "https://urban-space-enigma-5xwg5x7g9gx2vqwp-8000.app.github.dev"]
+CSRF_TRUSTED_ORIGINS = ['https://localhost:8000', 'http://127.0.0.1:8000',   "https://urban-space-enigma-5xwg5x7g9gx2vqwp-8000.app.github.dev","phoenix-solution-webpage.onrender.com"]
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost","urban-space-enigma-5xwg5x7g9gx2vqwp-8000.app.github.dev"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost","urban-space-enigma-5xwg5x7g9gx2vqwp-8000.app.github.dev","phoenix-solution-webpage.onrender.com"]
 
 
 # Application definition
