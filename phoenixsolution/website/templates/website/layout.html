@@ -19,7 +19,7 @@
             <div class="nav-bar">
                 <div class="brand">
                     <a href="{% url 'index' %}">
-                        <img src="{% static 'images/logo.png' %}" style="height: 45px;">
+                        <img src="{% static 'images/logo.png' %}" style="height: 55px;">
                         <span class="brand-text">Phoenix NSG Solutions</span>
                     </a>
                 </div>
@@ -73,12 +73,62 @@
 <!-- Fin contenido -->
 
 <!--Footer-->
-<section id="footer">
+<!-- <section id="footer">
     <div class="footer container">
         <div class="brand"><h3>Phoenix NSG Solutions</h3></div>
         <p> All Rights Reserved</p>
     </div>
-</section>
+</section> -->
+
+<footer class="footer">
+    <div class="footer-banner">
+      <h2>¿Quieres colaborar con nosotros?</h2>
+      <p>¡Empecemos!</p>
+      <a class="footer-button" href="{% url 'index' %}#contact">Contáctanos</a>
+    </div>
+    <div class="footer-links">
+      <div class="footer-column">
+        <div class="brand">
+            <a href="{% url 'index' %}">
+                <img src="{% static 'images/logo.png' %}" style="height: 90px;">
+                
+            </a>
+            <span class="brand-text-footer">Phoenix NSG Solutions</span>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Customers</h3>
+        <ul>
+          <li><a href="#">Buyer</a></li>
+          <li><a href="#">Supplier</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Further Information</h3>
+        <ul>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Follow us</h3>
+        <ul class="social-links">
+          <li><a href="#" class="social-icon"></a></li>
+          <li><a href="#" class="social-icon"></a></li>
+          <li><a href="#" class="social-icon"></a></li>
+          <li><a href="#" class="social-icon"></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 <!--Fin footer-->
 
 <!--scripts-->

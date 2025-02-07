@@ -203,6 +203,16 @@ ul {
     position: relative; /* Necesario para posicionar el efecto detrás */
 }
 
+.brand-text-footer {
+	top: -30px;
+	margin-left: 5px;
+    font-size: 1rem; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita para mayor impacto */
+    color: rgb(255, 255, 255); /* Letras en blanco */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    position: relative; /* Necesario para posicionar el efecto detrás */
+}
+
 /* Iluminación detrás de las letras */
 .brand-text::before {
     content: ''; /* Elemento pseudo para el brillo */
@@ -213,11 +223,23 @@ ul {
     bottom: 0;
     z-index: -1; /* Envía el brillo detrás del texto */
     background: linear-gradient(50deg, red, orange, yellow, red); /* Gradiente para la iluminación */
-    filter: blur(5px); /* Difumina el gradiente para crear el efecto de iluminación */
-    opacity: 0.1; /* Controla la intensidad del brillo */
+    filter: blur(7px); /* Difumina el gradiente para crear el efecto de iluminación */
+    opacity: 0.2; /* Controla la intensidad del brillo */
     animation: glowing 3s infinite; /* Movimiento dinámico del gradiente */
 }
-
+.brand-text-footer::before {
+    content: ''; /* Elemento pseudo para el brillo */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Envía el brillo detrás del texto */
+    background: linear-gradient(50deg, red, orange, yellow, red); /* Gradiente para la iluminación */
+    filter: blur(7px); /* Difumina el gradiente para crear el efecto de iluminación */
+    opacity: 0.9; /* Controla la intensidad del brillo */
+    animation: glowing 3s infinite; /* Movimiento dinámico del gradiente */
+}
 /* Animación del gradiente */
 @keyframes glowing {
     0% { background-position: 0% 50%; }
@@ -239,6 +261,9 @@ ul {
 @media (max-width: 768px) {
     .brand-text {
         font-size: 1rem; /* Reducir el tamaño del texto en pantallas pequeñas */
+    }
+    .brand-text-footer{
+        
     }
 }
 /* End Header section */
@@ -271,22 +296,22 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.78); /* Capa negra con opacidad */
+    background-color: rgba(0, 0, 0, 0.705); /* Capa negra con opacidad */
     z-index: -1; /* Coloca la capa debajo del contenido pero sobre la imagen */
 }
 
 @keyframes changeBackground {
-    0% { background-image: url('../images/team.jpg'); }
+    0% { background-image: url('../images/team4.jpeg'); }
     33% { background-image: url('../images/team2.jpg'); }
     66% { background-image: url('../images/team3.jpg'); }
-    100% { background-image: url('../images/team.jpg'); }
+    100% { background-image: url('../images/team4.jpeg'); }
 }
 
 /*fin banner*/
 
 /* footer */
 
-#footer {
+/* #footer {
     margin: top 15px;
     background-image: linear-gradient(60deg, #0b150d 0%,rgb(34, 12, 0) 50%, #0b150d 100%);
 }
@@ -300,7 +325,106 @@ ul {
 	color: white;
 	font-weight: 300;
 	font-size: 1rem;
-}
+} */
+:root {
+    --dark-blue: #000000;
+    --light-purple: #f800006d;
+    --purple: rgb(245, 139, 0);
+    --white: #ffffff;
+    --gray: #d1d5db;
+  }
+.footer {
+    background-image: linear-gradient(60deg, #0b150d 0%, rgb(34, 12, 0) 50%, #0b150d 100%);
+    color: var(--white);
+    padding: 2rem;
+  }
+  
+  .footer-banner {
+    background: linear-gradient(-45deg, rgb(58, 38, 0) 0%, rgb(48, 13, 0) 100%);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .footer-banner h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-banner p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-button {
+    background-color: var(--purple);
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+  
+  .footer-button:hover {
+    background-color: rgb(169, 97, 3);
+  }
+  
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .footer-links {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+  
+  .footer-column h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  .footer-column ul li a {
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer-column ul li a:hover {
+    color: var(--white);
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .social-icon {
+    font-size: 1.5rem;
+    color: var(--gray);
+    transition: color 0.3s;
+  }
+  
+  .social-icon:hover {
+    color: var(--white);
+  }
 
 /* fin footer*/
 
@@ -949,7 +1073,7 @@ ul {
 
 .partner img {
     max-width: 30%; /* Tamaño normal en pantallas grandes */
-    filter: grayscale(100%);
+    /* filter: grayscale(100%); */
     transition: filter 0.3s, max-width 0.3s ease;
     border-radius: 10px; /* Contornos más suaves */
 }
@@ -1040,6 +1164,11 @@ a.link-partner {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .form-title{
+    color: #666;
+    font-size: 0.9rem;
+
   }
 
   .form-control,

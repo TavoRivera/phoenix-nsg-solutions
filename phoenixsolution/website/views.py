@@ -34,8 +34,9 @@ def contact(request):
     if request.method == 'POST':
         name = request.POST["name"]
         email = request.POST["email"]
+        phone = request.POST["phone"]
         message = request.POST["message"]
-        subject = f"Nueva consulta de {name} recibida desde el sitio web"
+        subject = f"Nueva solicitud de {name} recibida desde el sitio web"
 
         # Depuración: Ver datos en consola
         print(f"📩 Nombre: {name}, Email: {email}, Mensaje: {message}")
@@ -44,6 +45,7 @@ def contact(request):
         template = render_to_string('website/email.html', {
             'name': name,
             'email': email,
+            'phone':phone,
             'subject': subject,
             'message': message
         })
@@ -59,7 +61,7 @@ def contact(request):
             emailSender.send()
             
             # Mensaje de éxito
-            messages.success(request, 'Se ha enviado tu consulta. Pronto nos pondremos en contacto contigo.')
+            messages.success(request, 'Se ha enviado tu solicitud. Pronto nos pondremos en contacto contigo.')
         
         except Exception as e:
             # Mensaje de error

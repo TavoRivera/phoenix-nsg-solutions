@@ -13,7 +13,7 @@ Inicio
     <div class="container">
         <div class="content">
             <h1 class="section-title">En Phoenix NSG Solutions</h1>
-            <h3>Impulsamos marcas y empresas, convirtiendo tu equipo de marketing en un motor imparable en ventas.</h3>
+            <h3>Juntos construimos un futuro. Crece y alcanza el exito profesional con nosotros</h3>
         </div>
         
         <div class="miembros-container">
@@ -58,7 +58,7 @@ Inicio
 <!--PARTNERS-->
 <section id="partners">
     <div class="partners-container-1">
-        <h2 class="encabezados">Nuestros Partners</h2>
+        <h2 class="encabezados">Nuestros Socios Comerciales</h2>
     </div>
     <div class="partners-container-2">
         <div class="partners-carousel">
@@ -81,12 +81,13 @@ Inicio
 <section id="contact">
   <p class="encabezados">Contacto</p>
   <div class="contact-wrapper">
-
     <form action="{% url 'contact' %}" method="POST" class="form-horizontal">
+        <p class="form-title">¿Quieres ser parte de nosotros? Rellena los campos de abajo y nos estaremos comunicando contigo</p>
 
         {% csrf_token %}
         <input type="text" class="form-control" id="name" placeholder="Nombre" name="name" required>
         <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" name="email" required>
+        <input type="tel"  class="form-control"  id="phone" name="phone" placeholder="(123) 456-7890" required>
         <textarea class="form-control" placeholder="Mensaje" name="message" required></textarea>
         <button class="send-button" id="submit" type="submit"  value="Send email">ENVIAR</button>
     </form>
@@ -109,7 +110,10 @@ Inicio
 
     <div class="direct-contact-container">
       <ul class="contact-list">
-        <li class="list-item"><i class="fa fa-map-marker"></i> <span>Loose weight, 1490 W 49th Pl, Hialeah, FL 33012, EE. UU.</span></li>
+       
+        <li class="list-item"><i class="fa fa-map-marker"></i> <a href="https://www.google.com/maps/place/Loose+weight,+1490+W+49th+Pl,+Hialeah,+FL+33012,+EE.+UU./@25.8672886,-80.3128866,1209m/data=!3m1!1e3!4m6!3m5!1s0x88d9bafa569b8bb9:0x2f9e10a35407549!8m2!3d25.8673529!4d-80.3125677!16s%2Fg%2F11c3q3ltt3?entry=ttu&g_ep=EgoyMDI1MDIwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+            Loose weight, 1490 W 49th Pl, Hialeah, FL 33012, EE. UU.
+        </a></li>
         <li class="list-item"><i class="fa fa-phone"></i> <a href="tel:1-307-299-3885">(307) 299 - 3885</a></li>
         <li class="list-item"><i class="fa fa-envelope"></i> <a href="mailto:Lphoenixnsg@gmail.com">Lphoenixnsg@gmail.com</a></li>
       </ul>
@@ -127,7 +131,21 @@ Inicio
 </section>
 
     
-    
+<script>
+    document.getElementById('phone').addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\D/g, ''); // Eliminar caracteres no numéricos
+
+        if (value.length > 10) value = value.slice(0, 10); // Limitar a 10 dígitos
+        
+        let formattedValue = '';
+
+        if (value.length > 0) formattedValue = `(${value.slice(0, 3)}`;
+        if (value.length >= 4) formattedValue += `) ${value.slice(3, 6)}`;
+        if (value.length >= 7) formattedValue += `-${value.slice(6, 10)}`;
+
+        e.target.value = formattedValue;
+    });
+</script>  
 
 
 {% endblock %}
