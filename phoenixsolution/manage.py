@@ -20,3 +20,10 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# para ejecuta traducciones 
+
+## django-admin makemessages -l en
+## django-admin makemessages -l es
+## django-admin compilemessages

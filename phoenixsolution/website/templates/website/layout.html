@@ -29,18 +29,31 @@
                         <div class="bar"></div>
                     </div>
                     <ul>
-                        <li><a href="{% url 'index' %}" data-after="inicio">Inicio</a></li>
+                        <li><a href="{% url 'index' %}" data-after="{% trans 'Inicio' %}">{% trans 'Inicio' %}</a></li>
                         <li><a href="{% url 'index' %}#nuestros_servicios" data-after="{% trans 'servicios' %}">{% trans 'servicios' %}</a></li>
                         <li><a href="{% url 'members' %}" data-after="{% trans 'Nuestro Equipo' %}">{% trans 'Nuestro Equipo' %}</a></li>
-                        <li><a href="{% url 'index' %}#contact" data-after="Contacto">Contacto</a></li>
+                        <li><a href="{% url 'index' %}#contact" data-after="{% trans 'Contacto' %}">{% trans 'Contacto' %}</a></li>
                         <li> 
-                          <form action="{% url 'set_language' %}" method="post">
+                          <form action="{% url 'set_language' %}" method="post" onsubmit="reloadPage()">
                             {% csrf_token %}
                             <select name="language" onchange="this.form.submit()">
-                                <option value="es" {% if LANGUAGE_CODE == 'es' %}selected{% endif %}>Español</option>
-                                <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+                                <option value="es" {% if request.LANGUAGE_CODE == 'es' %}selected{% endif %}>Español</option>
+                                <option value="en" {% if request.LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
                             </select>
-                          </form>                     
+                        </form>
+                        
+                        <script>
+                        // Función para recargar la página después de que se envíe el formulario
+                        function reloadPage() {
+                            setTimeout(function() {
+                                location.reload();  // Recargar la página después de un breve retraso
+                            }, 500);  // Espera 500ms antes de recargar la página
+                        }
+                        </script>
+                        
+                        
+                        
+                                          
                         </li>
                     </ul>
 
@@ -93,9 +106,9 @@
 
 <footer class="footer">
   <div class="footer-banner">
-    <h2>¿Quieres colaborar con nosotros?</h2>
-    <p>¡Empecemos!</p>
-    <a class="footer-button" href="{% url 'index' %}#contact">Contáctanos</a>
+    <h2>{% trans '¿Quieres ser parte de nuestro equipo?' %}</h2>
+    <p>{% trans '¡Empecemos!' %}</p>
+    <a class="footer-button" href="{% url 'index' %}#contact">{% trans 'Contáctanos' %}</a>
   </div>
   <div class="footer-links">
     <div class="footer-column">
@@ -106,21 +119,21 @@
       </div>
     </div>
     <div class="footer-column">
-      <h3>Compañía</h3>
+      <h3>{% trans 'Compañía' %}</h3>
       <ul>
-        <li><a href="#">Sobre Nosotros</a></li>
-        <li><a href="#">Carreras</a></li>
+        <li><a href="#">{% trans 'Sobre Nosotros' %}</a></li>
+        <li><a href="#">{% trans 'Carreras' %}</a></li>
       </ul>
     </div>
     <div class="footer-column">
-      <h3>Más Información</h3>
+      <h3>{% trans 'Más Información' %}</h3>
       <ul>
-        <li><a href="#">Terminos y Condiciones</a></li>
-        <li><a href="#">Política de Privacidad</a></li>
+        <li><a href="#">{% trans 'Terminos y Condiciones' %}</a></li>
+        <li><a href="#">{% trans 'Política de Privacidad' %}</a></li>
       </ul>
     </div>
     <div class="footer-column">
-      <h3>Síguenos</h3>
+      <h3>{% trans 'Síguenos' %}</h3>
       <ul class="social-links">
         <li><a href="#"><i class="bi bi-github contact-icon"></i></a></li>
         <li><a href="#"><i class="bi bi-facebook contact-icon"></i></a></li>
@@ -131,7 +144,7 @@
     <div class="footer-column">
       <h3 style="font-size: 12px;">© 2025 Phoenix NSG Solutions</h3>
       <ul>
-        <li> <a href="https://github.com/TavoRivera" style="font-size: 6px;">Contacto con el creador del sitio</a></li>
+        <li> <a href="https://github.com/TavoRivera" style="font-size: 6px;">{% trans 'Contacto con el desarrollador' %}</a></li>
       </ul>
       
     </div>

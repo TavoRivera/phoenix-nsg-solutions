@@ -1,0 +1,152 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-11 22:09+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
+
+#: phoenixsolution/settings.py:93
+msgid "Español"
+msgstr "Español"
+
+#: phoenixsolution/settings.py:94
+msgid "English"
+msgstr "Inglés"
+
+#: website/templates/website/index.html:15
+msgid "En Phoenix NSG Solutions"
+msgstr ""
+
+#: website/templates/website/index.html:16
+msgid ""
+"Juntos construimos un futuro. Crece y alcanza el exito profesional con "
+"nosotros"
+msgstr ""
+
+#: website/templates/website/index.html:38
+#, fuzzy
+#| msgid "servicios"
+msgid "Nuestros Servicios"
+msgstr "servicios"
+
+#: website/templates/website/index.html:61
+msgid "Nuestros Socios Comerciales"
+msgstr ""
+
+#: website/templates/website/index.html:71
+msgid "Conoce más sobre ellos aquí"
+msgstr ""
+
+#: website/templates/website/index.html:82
+#: website/templates/website/layout.html:35
+#: website/templates/website/members.html:37
+msgid "Contacto"
+msgstr ""
+
+#: website/templates/website/index.html:85
+msgid ""
+"¿Quieres ser parte de nosotros? Rellena los campos de abajo y nos estaremos "
+"comunicando contigo"
+msgstr ""
+
+#: website/templates/website/index.html:88
+msgid "Nombre y Apellido"
+msgstr ""
+
+#: website/templates/website/index.html:89
+msgid "Correo Electrónico"
+msgstr ""
+
+#: website/templates/website/index.html:91
+msgid "Mensaje"
+msgstr ""
+
+#: website/templates/website/index.html:92
+msgid "ENVIAR"
+msgstr ""
+
+#: website/templates/website/layout.html:32
+msgid "Inicio"
+msgstr ""
+
+#: website/templates/website/layout.html:33
+msgid "servicios"
+msgstr "servicios"
+
+#: website/templates/website/layout.html:34
+msgid "Nuestro Equipo"
+msgstr "Nuestro Equipo"
+
+#: website/templates/website/layout.html:109
+msgid "¿Quieres ser parte de nuestro equipo?"
+msgstr ""
+
+#: website/templates/website/layout.html:110
+msgid "¡Empecemos!"
+msgstr ""
+
+#: website/templates/website/layout.html:111
+msgid "Contáctanos"
+msgstr ""
+
+#: website/templates/website/layout.html:122
+msgid "Compañía"
+msgstr ""
+
+#: website/templates/website/layout.html:124
+msgid "Sobre Nosotros"
+msgstr ""
+
+#: website/templates/website/layout.html:125
+msgid "Carreras"
+msgstr ""
+
+#: website/templates/website/layout.html:129
+msgid "Más Información"
+msgstr ""
+
+#: website/templates/website/layout.html:131
+msgid "Terminos y Condiciones"
+msgstr ""
+
+#: website/templates/website/layout.html:132
+msgid "Política de Privacidad"
+msgstr ""
+
+#: website/templates/website/layout.html:136
+msgid "Síguenos"
+msgstr ""
+
+#: website/templates/website/layout.html:147
+msgid "Contacto con el desarrollador"
+msgstr ""
+
+#: website/templates/website/members.html:12
+msgid "Nuestro Equipo en Phoenix NSG Solutions"
+msgstr ""
+
+#: website/templates/website/members.html:13
+msgid ""
+"Nos enfocamos en desarrollar a nuestro equipo con capacitaciones y tutorías "
+"continuas, lo que significa que nunca dejamos de aprender y crecer. Durante "
+"nuestro programa de formacion desarrollamos habilidades en Relaciones con el "
+"Cliente, Gestion, Marketing, Ventas y más..."
+msgstr ""
+
+#: website/templates/website/members.html:21
+msgid "Conoce a los miembros de nuestro equipo"
+msgstr ""

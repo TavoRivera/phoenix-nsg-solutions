@@ -23,6 +23,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('website.urls')),
+    path('i18n/', include('django.conf.urls.i18n')),  # 📌 Agrega esto para habilitar `set_language`
+
 
 ]
 # Solo en modo de desarrollo, servir archivos de medios
