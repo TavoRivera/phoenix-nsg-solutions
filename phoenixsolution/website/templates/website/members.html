@@ -37,13 +37,13 @@ Nuestro Equipo
                 <p><strong>{% trans 'Contacto' %}</strong></p>
                 <div class="contact-info">
                     <p>
-                        <strong>Teléfono <i class="fa fa-phone" aria-hidden="true"></i> </strong> 
-                        <a style="text-decoration: none;" href="tel:{{ miembro.telefono }}">{{ miembro.telefono }}</a>
+                        <strong>{% trans 'Teléfono'%} <i class="fa fa-phone" aria-hidden="true"></i> </strong> 
+                        <a style="text-decoration: none; color:red" href="tel:{{ miembro.telefono }}">{{ miembro.telefono }}</a>
                         
                     </p>
                     <p>
-                         <strong>Correo <i class="fa fa-envelope" aria-hidden="true"></i></strong> 
-                         <a style="text-decoration: none;" href="mailto:{{ miembro.correo }}">{{ miembro.correo }}</a>
+                         <strong>{% trans 'Correo'%} <i class="fa fa-envelope" aria-hidden="true"></i></strong> 
+                         <a style="text-decoration: none; color:red;" href="mailto:{{ miembro.correo }}">{{ miembro.correo }}</a>
 
                     </p>
                 </div>

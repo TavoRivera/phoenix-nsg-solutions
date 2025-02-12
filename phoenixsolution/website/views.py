@@ -7,30 +7,68 @@ from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.contrib import messages
+from django.utils.translation import get_language
 
+# Función para obtener los campos traducidos según el idioma
+def get_translated_fields(obj, idioma):
+    translated_fields = {}
+    for field in obj._meta.get_fields():
+        if field.is_relation or field.many_to_many:  # Excluir relaciones o campos M2M
+            continue
+        field_name = field.name
+        translated_name = f"{field_name}_{idioma}"  # Ej. "nombre_en" si el idioma es "en"
+        translated_fields[field_name] = getattr(obj, translated_name, getattr(obj, field_name))
+    return translated_fields
 
-# Create your views here.
+# Vista principal
 @csrf_exempt
 def index(request):
+    # Obtener el idioma activo
+    idioma = get_language()
+
+    # Consultar los miembros y traducir los campos según el idioma
     miembros = Miembro.objects.filter(mostrar_en_inicio=1)
+    for miembro in miembros:
+        translated = get_translated_fields(miembro, idioma)
+        miembro.nombre = translated.get('nombre', miembro.nombre)  # Usar el nombre traducido
+
     servicios = Servicio.objects.all()
     partners = Partner.objects.all()
-    return render(request, 'website/index.html', {'miembros': miembros,'servicios':servicios,'partners':partners})
-    # return render(request,"website/index.html")
 
+    # Traducir los servicios
+    for servicio in servicios:
+        translated = get_translated_fields(servicio, idioma)
+        servicio.nombre = translated.get('nombre', servicio.nombre)
+
+    # Traducir los partners
+    for partner in partners:
+        translated = get_translated_fields(partner, idioma)
+        partner.nombre = translated.get('nombre', partner.nombre)
+
+    return render(request, 'website/index.html', {
+        'miembros': miembros,
+        'servicios': servicios,
+        'partners': partners
+    })
+
+# Vista de miembros
 @csrf_exempt
 def members(request):
+    idioma = get_language()
     miembros_queryset = Miembro.objects.all().order_by('puesto__nivel')  # Sin la coma, ahora es un QuerySet válido
     miembros = []  # Lista para almacenar miembros con teléfono formateado
 
     for miembro in miembros_queryset:
         miembro.telefono = format_phone(miembro.telefono)  # Formateamos el teléfono
+        translated = get_translated_fields(miembro, idioma)
+        miembro.nombre = translated.get('nombre', miembro.nombre)  # Traducir nombre
         miembros.append(miembro)  # Guardamos el miembro modificado en la lista
 
     return render(request, "website/members.html", {
         "miembros": miembros,  # Pasamos la lista modificada
     })
 
+# Vista de contacto
 def contact(request):
     if request.method == 'POST':
         name = request.POST["name"]
@@ -46,7 +84,7 @@ def contact(request):
         template = render_to_string('website/email.html', {
             'name': name,
             'email': email,
-            'phone':phone,
+            'phone': phone,
             'subject': subject,
             'message': message
         })
@@ -60,7 +98,7 @@ def contact(request):
             )
             emailSender.content_subtype = 'html'
             emailSender.send()
-            
+
             # Mensaje de éxito
             messages.success(request, 'Se ha enviado tu solicitud. Pronto nos pondremos en contacto contigo.')
         
@@ -71,6 +109,3 @@ def contact(request):
         return redirect('index')
 
     return render(request, "website/index.html")
-
-
-

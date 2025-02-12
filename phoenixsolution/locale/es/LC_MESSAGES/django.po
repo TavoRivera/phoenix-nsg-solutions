@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-11 22:09+0000\n"
+"POT-Creation-Date: 2025-02-12 00:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,63 +19,63 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
 "1 : 2;\n"
 
-#: phoenixsolution/settings.py:93
+#: phoenixsolution/settings.py:94
 msgid "Español"
 msgstr "Español"
 
-#: phoenixsolution/settings.py:94
+#: phoenixsolution/settings.py:95
 msgid "English"
 msgstr "Inglés"
 
-#: website/templates/website/index.html:15
+#: website/templates/website/index.html:16
 msgid "En Phoenix NSG Solutions"
 msgstr ""
 
-#: website/templates/website/index.html:16
+#: website/templates/website/index.html:17
 msgid ""
 "Juntos construimos un futuro. Crece y alcanza el exito profesional con "
 "nosotros"
 msgstr ""
 
-#: website/templates/website/index.html:38
+#: website/templates/website/index.html:39
 #, fuzzy
 #| msgid "servicios"
 msgid "Nuestros Servicios"
 msgstr "servicios"
 
-#: website/templates/website/index.html:61
+#: website/templates/website/index.html:62
 msgid "Nuestros Socios Comerciales"
 msgstr ""
 
-#: website/templates/website/index.html:71
+#: website/templates/website/index.html:72
 msgid "Conoce más sobre ellos aquí"
 msgstr ""
 
-#: website/templates/website/index.html:82
+#: website/templates/website/index.html:83
 #: website/templates/website/layout.html:35
 #: website/templates/website/members.html:37
 msgid "Contacto"
 msgstr ""
 
-#: website/templates/website/index.html:85
+#: website/templates/website/index.html:86
 msgid ""
 "¿Quieres ser parte de nosotros? Rellena los campos de abajo y nos estaremos "
 "comunicando contigo"
 msgstr ""
 
-#: website/templates/website/index.html:88
+#: website/templates/website/index.html:89
 msgid "Nombre y Apellido"
 msgstr ""
 
-#: website/templates/website/index.html:89
+#: website/templates/website/index.html:90
 msgid "Correo Electrónico"
 msgstr ""
 
-#: website/templates/website/index.html:91
+#: website/templates/website/index.html:92
 msgid "Mensaje"
 msgstr ""
 
-#: website/templates/website/index.html:92
+#: website/templates/website/index.html:93
 msgid "ENVIAR"
 msgstr ""
 
@@ -149,4 +149,12 @@ msgstr ""
 
 #: website/templates/website/members.html:21
 msgid "Conoce a los miembros de nuestro equipo"
+msgstr ""
+
+#: website/templates/website/members.html:40
+msgid "Teléfono"
+msgstr ""
+
+#: website/templates/website/members.html:45
+msgid "Correo"
 msgstr ""

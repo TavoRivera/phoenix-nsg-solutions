@@ -33,14 +33,14 @@
                         <li><a href="{% url 'index' %}#nuestros_servicios" data-after="{% trans 'servicios' %}">{% trans 'servicios' %}</a></li>
                         <li><a href="{% url 'members' %}" data-after="{% trans 'Nuestro Equipo' %}">{% trans 'Nuestro Equipo' %}</a></li>
                         <li><a href="{% url 'index' %}#contact" data-after="{% trans 'Contacto' %}">{% trans 'Contacto' %}</a></li>
-                        <li> 
-                          <form action="{% url 'set_language' %}" method="post" onsubmit="reloadPage()">
-                            {% csrf_token %}
-                            <select name="language" onchange="this.form.submit()">
-                                <option value="es" {% if request.LANGUAGE_CODE == 'es' %}selected{% endif %}>Español</option>
-                                <option value="en" {% if request.LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
-                            </select>
-                        </form>
+                        <li>                       
+                        <form action="{% url 'set_language' %}" method="post" class="language-form" onsubmit="reloadPage()">
+                          {% csrf_token %}
+                          <select name="language" onchange="this.form.submit()">
+                              <option value="es" {% if request.LANGUAGE_CODE == 'es' %}selected{% endif %}>Español</option>
+                              <option value="en" {% if request.LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+                          </select>
+                      </form>
                         
                         <script>
                         // Función para recargar la página después de que se envíe el formulario

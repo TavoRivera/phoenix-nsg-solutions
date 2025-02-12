@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-11 22:09+0000\n"
+"POT-Creation-Date: 2025-02-12 00:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,68 +18,67 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: phoenixsolution/settings.py:93
+#: phoenixsolution/settings.py:94
 msgid "Español"
 msgstr "Spanish"
 
-#: phoenixsolution/settings.py:94
+#: phoenixsolution/settings.py:95
 msgid "English"
 msgstr "English"
 
-#: website/templates/website/index.html:15
+#: website/templates/website/index.html:16
 msgid "En Phoenix NSG Solutions"
 msgstr "At Phoenix NSG Solutions"
 
-#: website/templates/website/index.html:16
+#: website/templates/website/index.html:17
 msgid ""
 "Juntos construimos un futuro. Crece y alcanza el exito profesional con "
 "nosotros"
 msgstr ""
-"Together we build a future. Grow and achieve professional success with "
-"us"
+"Together we build a future. Grow and achieve professional success with us"
 
 # No necesita traducción
-#: website/templates/website/index.html:38
+#: website/templates/website/index.html:39
 #, fuzzy
 #| msgid "servicios"
 msgid "Nuestros Servicios"
 msgstr "Services"
 
-#: website/templates/website/index.html:61
+#: website/templates/website/index.html:62
 msgid "Nuestros Socios Comerciales"
 msgstr "Our Business Partners"
 
-#: website/templates/website/index.html:71
+#: website/templates/website/index.html:72
 msgid "Conoce más sobre ellos aquí"
 msgstr "Learn more about them here"
 
-#: website/templates/website/index.html:82
+#: website/templates/website/index.html:83
 #: website/templates/website/layout.html:35
 #: website/templates/website/members.html:37
 msgid "Contacto"
 msgstr "Contact"
 
-#: website/templates/website/index.html:85
+#: website/templates/website/index.html:86
 msgid ""
 "¿Quieres ser parte de nosotros? Rellena los campos de abajo y nos estaremos "
 "comunicando contigo"
 msgstr ""
-"Do you want to be part of us? Fill out the fields below and we will "
-"contact you"
+"Do you want to be part of us? Fill out the fields below and we will contact "
+"you"
 
-#: website/templates/website/index.html:88
+#: website/templates/website/index.html:89
 msgid "Nombre y Apellido"
 msgstr "Firstname and Lastname"
 
-#: website/templates/website/index.html:89
+#: website/templates/website/index.html:90
 msgid "Correo Electrónico"
 msgstr "Email"
 
-#: website/templates/website/index.html:91
+#: website/templates/website/index.html:92
 msgid "Mensaje"
 msgstr "Message"
 
-#: website/templates/website/index.html:92
+#: website/templates/website/index.html:93
 msgid "ENVIAR"
 msgstr "SEND"
 
@@ -142,7 +141,7 @@ msgstr "Contact the developer"
 
 #: website/templates/website/members.html:12
 msgid "Nuestro Equipo en Phoenix NSG Solutions"
-msgstr ""
+msgstr "Our Team at Phoenix NSG Solutions"
 
 #: website/templates/website/members.html:13
 msgid ""
@@ -151,11 +150,19 @@ msgid ""
 "nuestro programa de formacion desarrollamos habilidades en Relaciones con el "
 "Cliente, Gestion, Marketing, Ventas y más..."
 msgstr ""
-"We focus on developing our team with training and continuous"
-"mentoring, meaning we never stop learning and growing. During "
-"our training program develops skills in Customer Relations,"
-"Management, Marketing, Sales and more..."
+"We focus on developing our team with training and continuousmentoring, "
+"meaning we never stop learning and growing. During our training program "
+"develops skills in Customer Relations,Management, Marketing, Sales and "
+"more..."
 
 #: website/templates/website/members.html:21
 msgid "Conoce a los miembros de nuestro equipo"
 msgstr "Meet our team members"
+
+#: website/templates/website/members.html:40
+msgid "Teléfono"
+msgstr "Phone"
+
+#: website/templates/website/members.html:45
+msgid "Correo"
+msgstr "Email"
