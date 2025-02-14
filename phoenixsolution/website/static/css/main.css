@@ -1356,17 +1356,19 @@ select:hover {
     padding: 20px;
     position: relative;
     min-height: 90vh;
+    margin-bottom: 15px;
 }
 
 .contenedor-comentario-section {
     display: flex;
     width: 90%;
+    height: auto;
     max-width: 1300px;
-    max-height: 80vh;
+    max-height: 90vh;
     background: #ccc;
-    border-radius: 10px;
+    border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0 3px 6px rgb(48, 13, 0);
+    box-shadow: 0 0 1px rgb(48, 13, 0);
 }
 
 /* Carrusel de imágenes */
@@ -1427,17 +1429,17 @@ select:hover {
 .comentarios-list {
     flex-grow: 1;
     overflow-y: auto;
-    height: 35vh;
-    padding-right: 10px;
+    height: 52vh;
+    padding: 5vh;
     margin-bottom: 8px;
 }
 
 .comentario {
     background: #ffffff;
-    padding: 10px;
+    padding: 7px;
     margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0 1px 2px rgba(48, 13, 0, 0.724);
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(48, 13, 0, 0.724);
 }
 .comentario h3 {
     font-size: 0.9rem;
@@ -1457,6 +1459,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 8px; /* Mayor separación entre elementos */
+    
 }
 .label-formulario-comentarios{
     font-size: 0.8rem;
@@ -1466,14 +1469,15 @@ form {
 .form-group {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .form-group input {
- height: 12px;
+ height: 14px;
 }
 
 .form-group input,
 .form-group textarea {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     border: 1px solid #ccc; /* Borde sutil */
     border-radius: 8px; /* Bordes redondeados */
@@ -1489,6 +1493,24 @@ form {
     border-color: rgb(48, 13, 0); /* Cambia de color cuando se escribe */
     background: #fff;
 }
+
+.send-button-comentarios{
+    background-color: #FFD700;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    padding: 7px;
+    width: 50%;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: -10px;
+    
+  
+}
+.send-button-comentarios:hover {
+    background-color: #fee34a;
+  }
 
 /* Ajuste específico del textarea */
 #mensaje {
