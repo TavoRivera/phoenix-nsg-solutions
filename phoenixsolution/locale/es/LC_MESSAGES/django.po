@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-12 00:43+0000\n"
+"POT-Creation-Date: 2025-02-12 18:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,11 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
 "1 : 2;\n"
 
-#: phoenixsolution/settings.py:94
+#: phoenixsolution/settings.py:96
 msgid "Español"
 msgstr "Español"
 
-#: phoenixsolution/settings.py:95
+#: phoenixsolution/settings.py:97
 msgid "English"
 msgstr "Inglés"
 
@@ -38,10 +38,8 @@ msgid ""
 msgstr ""
 
 #: website/templates/website/index.html:39
-#, fuzzy
-#| msgid "servicios"
-msgid "Nuestros Servicios"
-msgstr "servicios"
+msgid "Servicios que ofrecemos"
+msgstr ""
 
 #: website/templates/website/index.html:62
 msgid "Nuestros Socios Comerciales"
@@ -90,6 +88,10 @@ msgstr "servicios"
 #: website/templates/website/layout.html:34
 msgid "Nuestro Equipo"
 msgstr "Nuestro Equipo"
+
+#: website/templates/website/layout.html:81
+msgid "Se ha enviado tu solicitud. Pronto nos pondremos en contacto contigo."
+msgstr ""
 
 #: website/templates/website/layout.html:109
 msgid "¿Quieres ser parte de nuestro equipo?"

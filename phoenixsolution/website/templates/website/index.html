@@ -36,7 +36,7 @@ Inicio
 
 <!--SERVICIOS-->
 <section id="nuestros_servicios">
-    <h2 class="encabezados">{% trans 'Nuestros Servicios' %}</h2>
+    <h2 class="encabezados">{% trans 'Servicios que ofrecemos' %}</h2>
     <div class="card-container-services">
         {%for servicio in servicios%}
         <div class="card-services">
@@ -79,6 +79,80 @@ Inicio
     
 </section>
 
+
+<section id="comentarios">
+    <div class="contenedor-comentario-section">
+        <!-- Carrusel de fotos -->
+        <div class="carrusel-container">
+            <div class="carrusel">
+                {%for imagen in imagenes_de_comentarios %}
+                <div class="slide">
+                    <img src="{{ imagen.imagen.url }}" alt="{{ imagen.nombre }}">
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+        <script>
+            const carrusel = document.querySelector(".carrusel");
+            const slides = document.querySelectorAll(".slide");
+            let index = 0;
+            const totalSlides = slides.length;
+            const intervalTime = 4000; // Cambia de imagen cada 5 segundos
+
+            function moverCarrusel() {
+                index = (index + 1) % totalSlides; // Mueve al siguiente slide, vuelve a 0 si es el último
+                const offset = -index * 100; // Calcula el desplazamiento en porcentaje
+                carrusel.style.transform = `translateX(${offset}%)`;
+            }
+
+            setInterval(moverCarrusel, intervalTime); // Inicia la animación automática
+        </script>
+
+        <!-- Sección de comentarios -->
+        <div class="comentarios-container">
+            <h2>Comentarios</h2>
+            <!-- Lista de comentarios -->
+            <div class="comentarios-list">
+                <div class="comentario">
+                    <h3>Nombre del Usuario</h3>
+                    <p><strong>Puesto del Usuario</strong></p>
+                    <p>Mensaje del usuario...</p>
+                </div>
+                <div class="comentario">
+                    <h3>Nombre del Usuario</h3>
+                    <p><strong>Puesto del Usuario</strong></p>
+                    <p>Mensaje del usuario...</p>
+                </div>
+                <div class="comentario">
+                    <h3>Nombre del Usuario</h3>
+                    <p><strong>Puesto del Usuario</strong></p>
+                    <p>Mensaje del usuario...</p>
+                </div>
+                <div class="comentario">
+                    <h3>Nombre del Usuario</h3>
+                    <p><strong>Puesto del Usuario</strong></p>
+                    <p>Mensaje del usuario...</p>
+                </div>
+                <!-- Repite esta estructura para cada comentario -->
+            </div>
+            <form action="{% url 'comentarios' %}" method="post">
+                {% csrf_token %}
+                <label class="label-formulario-comentarios">Queremos saber tu opinión, deja acá tu comentario</label>
+                <div class="form-group">
+                    <input type="text" id="nombre" name="nombre"  placeholder="Nombre" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="puesto" name="puesto" placeholder="Cargo ocupado" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="mensaje" name="mensaje" placeholder="Mensaje" required></textarea>
+                </div>
+                <button  class="send-button" style="margin-top: -10px;" type="submit">ENVIAR COMENTARIO</button>
+            </form>
+        </div>
+    </div>
+</section>
+
 <section id="contact">
   <p class="encabezados">{% trans 'Contacto' %}</p>
   <div class="contact-wrapper">
@@ -92,16 +166,6 @@ Inicio
         <textarea class="form-control" placeholder="{% trans 'Mensaje' %}" name="message" required></textarea>
         <button class="send-button" id="submit" type="submit"  value="Send email">{% trans 'ENVIAR' %}</button>
     </form>
-    <!-- <form action="/contact/" method="POST" id="contact-form" class="form-horizontal">
-        {% csrf_token %}
-        
-        <input type="text" class="form-control" id="name" placeholder="Nombre" name="name" required>
-        <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" name="email" required>
-        <textarea class="form-control" placeholder="Mensaje" name="message" required></textarea>
-        
-        <button class="send-button" id="submit" type="submit">ENVIAR</button>
-    </form> -->
-    
     <script>
     document.getElementById("contact-form").addEventListener("submit", function(event) {
         console.log("Formulario intentando enviarse...");  // Verificar en consola

@@ -195,7 +195,7 @@ ul {
     height: 110px;
 }
 .brand-text {
-	top: -10px;
+	top: -12px;
 	margin-left: 5px;
     font-size: 1.5rem; /* Tamaño de la fuente */
     font-weight: bold; /* Negrita para mayor impacto */
@@ -1265,7 +1265,7 @@ a.link-partner {
   }
 
   .send-button:hover {
-    background-color: #fe8700;
+    background-color: #fee34a;
   }
 
   .direct-contact-container {
@@ -1343,4 +1343,212 @@ select {
 
 select:hover {
     background-color: #555;
+}
+
+
+/*comentarios section*/
+
+/*carrousel*/
+#comentarios {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    min-height: 90vh;
+}
+
+.contenedor-comentario-section {
+    display: flex;
+    width: 90%;
+    max-width: 1300px;
+    max-height: 80vh;
+    background: #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgb(48, 13, 0);
+}
+
+/* Carrusel de imágenes */
+.carrusel-container {
+    flex: 1;
+    max-width: 30%;
+    position: relative;
+    overflow: hidden;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.carrusel {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Asegura que la imagen siempre llene el contenedor */
+    object-position: center; /* Centra la imagen horizontal y verticalmente */
+    border-radius: 10px 0 0 10px;
+}
+
+
+/* Sección de comentarios */
+.comentarios-container {
+    flex: 1;
+    max-width: 70%;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #ddd;
+    border-left: 5px solid rgb(48, 13, 0);
+    height: 100%;
+}
+.comentarios-container h2{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.comentarios-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    height: 35vh;
+    padding-right: 10px;
+    margin-bottom: 8px;
+}
+
+.comentario {
+    background: #ffffff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(48, 13, 0, 0.724);
+}
+.comentario h3 {
+    font-size: 0.9rem;
+    margin-bottom: -10px;
+    color:#333
+}
+.comentario p {
+    font-size: 0.8rem;
+}
+.comentario p strong{
+    font-size: 0.6rem;
+    color: orange
+}
+
+/* Formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Mayor separación entre elementos */
+}
+.label-formulario-comentarios{
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.form-group input {
+ height: 12px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Borde sutil */
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 1rem;
+    background: #f8f8f8;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+    color: #0b150d;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: rgb(48, 13, 0); /* Cambia de color cuando se escribe */
+    background: #fff;
+}
+
+/* Ajuste específico del textarea */
+#mensaje {
+    min-height: 80px;
+    resize: none; /* Evita que se estire demasiado */
+}
+
+/* Estilo del botón */
+/* button[type="submit"] {
+    margin-top: -10px;
+    background: #FFA500;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+    background: #FFD700;
+} */
+
+
+/* Estiliza el scroll dentro del modal */
+.comentarios-list::-webkit-scrollbar {
+    width: 8px; /* Grosor más delgado */
+}
+
+.comentarios-list::-webkit-scrollbar-thumb {
+    background-color: rgb(48, 13, 0);/*estiloscroll*/
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.comentarios-list::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color del fondo del scrollbar */
+    border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contenedor-comentario-section {
+        flex-direction: column;
+        max-height: none;
+    }
+    .carrusel-container {
+        max-width: 100%;
+        height: auto;
+    }
+    .comentarios-container {
+        max-width: 100%;
+        height: auto;
+    }
+    .comentarios-list {
+        max-height: 50vh;
+    }
+    .slide img {
+        height: 50vh;
+        border-radius: 10px 10px 0 0;
+    }
 }

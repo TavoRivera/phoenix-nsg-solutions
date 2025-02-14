@@ -41,3 +41,17 @@ class Partner(models.Model):
     def __str__(self):
         return self.nombre
 
+class Comentario(models.Model):
+    nombre = models.CharField(max_length=100)
+    puesto = models.ForeignKey(Puesto, on_delete=models.CASCADE, blank=True,null=True)
+    mensaje = models.TextField(blank=False)
+    fecha = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.nombre} - {self.puesto}'
+
+class ImagenesDeComentario(models.Model):
+    nombre = models.CharField(max_length=100)
+    imagen = models.ImageField(upload_to='images/comentarios', blank=True, null=True)
+    def __str__(self):
+        return f'{self.nombre}'

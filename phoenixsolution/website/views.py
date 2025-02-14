@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Miembro, Puesto, Servicio, Partner
+from .models import Miembro, Puesto, Servicio, Partner, ImagenesDeComentario
 from django.views.decorators.csrf import csrf_exempt
 from .templatetags.custom_filters import format_phone
 from django.template.loader import render_to_string
@@ -44,11 +44,14 @@ def index(request):
     for partner in partners:
         translated = get_translated_fields(partner, idioma)
         partner.nombre = translated.get('nombre', partner.nombre)
+    
+    imagenes_de_comentarios = ImagenesDeComentario.objects.all()
 
     return render(request, 'website/index.html', {
         'miembros': miembros,
         'servicios': servicios,
-        'partners': partners
+        'partners': partners,
+        'imagenes_de_comentarios':imagenes_de_comentarios
     })
 
 # Vista de miembros
@@ -109,3 +112,9 @@ def contact(request):
         return redirect('index')
 
     return render(request, "website/index.html")
+
+def comentarios(request):
+    if request.method == 'POST':
+        pass
+    else:
+        pass

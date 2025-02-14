@@ -78,8 +78,8 @@
 {% if message_success %}
 <script>
     Swal.fire({
-        "title": "{{message_success}}",
-        "icon": "success"
+      "title": "{% trans 'Se ha enviado tu solicitud. Pronto nos pondremos en contacto contigo.'%}", 
+      "icon": "success"
     })
 </script>
 {% endif %}
