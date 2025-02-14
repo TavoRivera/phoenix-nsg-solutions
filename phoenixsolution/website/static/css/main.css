@@ -1361,12 +1361,13 @@ select:hover {
 
 .contenedor-comentario-section {
     display: flex;
+    flex-direction: row; /* Diseño horizontal por defecto */
     width: 90%;
     height: auto;
     max-width: 1300px;
-    max-height: 90vh;
+    max-height: 85vh;
     background: #ccc;
-    border-radius: 5px;
+    border-radius: 7px;
     overflow: hidden;
     box-shadow: 0 0 1px rgb(48, 13, 0);
 }
@@ -1402,174 +1403,247 @@ select:hover {
 
 .slide img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;  /* Asegura que la imagen siempre llene el contenedor */
+    height: 100vh;
+    object-fit: cover; /* Asegura que la imagen siempre llene el contenedor */
     object-position: center; /* Centra la imagen horizontal y verticalmente */
-    border-radius: 10px 0 0 10px;
+    border-radius: 7px 0 0 7px;
 }
-
 
 /* Sección de comentarios */
 .comentarios-container {
     flex: 1;
     max-width: 70%;
-    padding: 12px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    background: #ddd;
-    border-left: 5px solid rgb(48, 13, 0);
-    height: 100%;
+    background: #f9f9f9;
+    border-left: 5px solid rgb(48, 13, 0); /* Borde izquierdo */
+    border-radius: 0 7px 7px 0; /* Bordes curvos solo en la derecha */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.comentarios-container h2{
-    text-align: center;
+
+.comentarios-container h2 {
+    text-align: center; /* Título centrado */
     font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 .comentarios-list {
     flex-grow: 1;
     overflow-y: auto;
-    height: 52vh;
-    padding: 5vh;
+    max-height: 52vh;
+    padding: 10px;
 }
 
 .comentario {
     background: #ffffff;
-    padding: 7px;
-    margin-bottom: 10px;
-    border-radius: 3px;
-    box-shadow: 0 1px 1px rgba(48, 13, 0, 0.724);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 7px;
+    box-shadow: 0 2px 4px rgba(48, 13, 0, 0.1);
+    text-align: left; /* Justificado a la izquierda */
 }
+
 .comentario h3 {
-    font-size: 0.9rem;
-    margin-bottom: -10px;
-    color:#333
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: left; /* Justificado a la izquierda */
 }
+
 .comentario p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    color: #555;
+    margin: 5px 0;
+    text-align: left; /* Justificado a la izquierda */
 }
-.comentario p strong{
-    font-size: 0.6rem;
-    color: orange
+
+.comentario p strong {
+    font-size: 0.8rem;
+    color: orange;
+}
+
+/* Estilo para respuestas */
+.reply {
+    margin-left: 30px;
+    margin-top: 10px;
+    padding-left: 15px;
+    border-left: 3px solid #ddd;
+    text-align: left; /* Justificado a la izquierda */
+}
+
+.reply h3 {
+    font-size: 0.9rem;
+    color: #333;
+    text-align: left; /* Justificado a la izquierda */
+}
+
+.reply p {
+    font-size: 0.8rem;
+    color: #777;
+    text-align: left; /* Justificado a la izquierda */
 }
 
 /* Formulario */
 form {
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Mayor separación entre elementos */
-    
+    gap: 10px;
 }
-.label-formulario-comentarios{
-    font-size: 0.8rem;
-    text-align: center;
+
+.label-formulario-comentarios {
+    font-size: 0.9rem;
+    text-align: center; /* Etiqueta centrada */
+    color: #555;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-.form-group input {
- height: 14px;
+    align-items: flex-start; /* Alineación a la izquierda */
 }
 
 .form-group input,
 .form-group textarea {
-    width: 80%;
+    width: 100%; /* Ocupa todo el ancho disponible */
     padding: 10px;
-    border: 1px solid #ccc; /* Borde sutil */
-    border-radius: 8px; /* Bordes redondeados */
-    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 0.9rem;
     background: #f8f8f8;
     outline: none;
     transition: border 0.3s ease-in-out;
-    color: #0b150d;
+    color: #333;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: rgb(48, 13, 0); /* Cambia de color cuando se escribe */
+    border-color: rgb(48, 13, 0);
     background: #fff;
 }
 
-.send-button-comentarios{
+.send-button-comentarios {
     background-color: #FFD700;
     color: #333;
     border: none;
-    border-radius: 5px;
-    padding: 7px;
-    width: 50%;
+    border-radius: 7px;
+    padding: 10px;
+    width: 100%; /* Ocupa todo el ancho disponible */
     font-size: 0.9rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: -10px;
-    
-  
 }
+
 .send-button-comentarios:hover {
     background-color: #fee34a;
-  }
+}
 
 /* Ajuste específico del textarea */
 #mensaje {
-    min-height: 80px;
-    resize: none; /* Evita que se estire demasiado */
+    min-height: 100px;
+    resize: none;
 }
 
-/* Estilo del botón */
-/* button[type="submit"] {
-    margin-top: -10px;
-    background: #FFA500;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-button[type="submit"]:hover {
-    background: #FFD700;
-} */
-
-
-/* Estiliza el scroll dentro del modal */
+/* Estiliza el scroll dentro del contenedor */
 .comentarios-list::-webkit-scrollbar {
-    width: 8px; /* Grosor más delgado */
+    width: 8px;
 }
 
 .comentarios-list::-webkit-scrollbar-thumb {
-    background-color: rgb(48, 13, 0);/*estiloscroll*/
-    border-radius: 10px; /* Bordes redondeados */
+    background-color: rgb(48, 13, 0);
+    border-radius: 10px;
 }
 
 .comentarios-list::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Color del fondo del scrollbar */
+    background: #f1f1f1;
     border-radius: 10px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .contenedor-comentario-section {
-        flex-direction: column;
+        flex-direction: column; /* Cambia a diseño vertical en pantallas pequeñas */
         max-height: none;
     }
+
     .carrusel-container {
-        max-width: 100%;
-        height: auto;
+        max-width: 100%; /* Ocupa todo el ancho */
+        height: 50vh; /* Altura fija para el carrusel */
+        border-radius: 7px 7px 0 0; /* Bordes curvos solo arriba */
     }
-    .comentarios-container {
-        max-width: 100%;
-        height: auto;
-    }
-    .comentarios-list {
-        max-height: 50vh;
-    }
+
     .slide img {
-        height: 50vh;
-        border-radius: 10px 10px 0 0;
+        height: 50vh; /* Altura fija para el carrusel en móvil */
+        width: 100%; /* Ocupa todo el ancho */
+        object-fit: cover; /* Asegura que la imagen cubra todo el espacio */
+        border-radius: 7px 7px 0 0; /* Bordes curvos solo arriba */
+    }
+
+    .comentarios-container {
+        max-width: 100%; /* Ocupa todo el ancho */
+        border-left: none; /* Elimina el borde izquierdo */
+        border-radius: 0 0 7px 7px; /* Bordes curvos solo abajo */
+        padding: 15px; /* Reducir el padding para ahorrar espacio */
+    }
+
+    .comentarios-list {
+        max-height: 40vh; /* Altura ajustada para pantallas pequeñas */
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+    }
+
+    .send-button-comentarios {
+        width: 100%;
+    }
+}
+
+/* Ajustes específicos para pantallas horizontales en móviles */
+/* Ajustes específicos para pantallas horizontales en móviles */
+@media (max-width: 1024px) and (min-aspect-ratio: 13/9) {
+    #comentarios {
+        height: auto;
+        min-height: 100vh; /* Asegura que todo el contenido sea visible */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contenedor-comentario-section {
+        flex-direction: row; /* Mantiene la distribución horizontal */
+        max-height: none;
+        height: auto;
+    }
+
+    .carrusel-container {
+        max-width: 30%;
+        height: auto; /* Permitir que el carrusel escale */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .slide img {
+        height: 100%;
+        max-height: 100vh; /* Evita que la imagen se extienda demasiado */
+    }
+
+    .comentarios-container {
+        max-width: 70%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .comentarios-list {
+        max-height: 60vh; /* Aumentar la altura disponible para comentarios */
+        overflow-y: auto;
+        flex-grow: 1;
+    }
+
+    form {
+        margin-top: auto; /* Empuja el formulario hacia abajo si hay espacio */
     }
 }

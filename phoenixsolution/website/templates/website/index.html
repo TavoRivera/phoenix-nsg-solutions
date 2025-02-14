@@ -122,16 +122,11 @@ Inicio
                     <h3>Nombre del Usuario</h3>
                     <p><strong>Puesto del Usuario</strong></p>
                     <p>Mensaje del usuario...</p>
-                </div>
-                <div class="comentario">
-                    <h3>Nombre del Usuario</h3>
-                    <p><strong>Puesto del Usuario</strong></p>
-                    <p>Mensaje del usuario...</p>
-                </div>
-                <div class="comentario">
-                    <h3>Nombre del Usuario</h3>
-                    <p><strong>Puesto del Usuario</strong></p>
-                    <p>Mensaje del usuario...</p>
+                    <!-- Respuesta -->
+                    <div class="reply">
+                        <h3>Admin</h3>
+                        <p>Gracias por tu comentario.</p>
+                    </div>
                 </div>
                 <!-- Repite esta estructura para cada comentario -->
             </div>
@@ -139,16 +134,21 @@ Inicio
                 {% csrf_token %}
                 <label class="label-formulario-comentarios">Queremos saber tu opinión, deja acá tu comentario</label>
                 <div class="form-group">
-                    <input type="text" id="nombre" name="nombre"  placeholder="Nombre" required>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" id="puesto" name="puesto" placeholder="Cargo ocupado" required>
+                    <select id="puesto" name="puesto" type="select" placeholder="Cargo ocupado" required>
+                        <option value="">--Seleccione el cargo ocupado--</option>
+                        {% for puesto in puestos %}
+                        <option value="{{puesto.nombre}}">{{puesto.nombre}}</option>
+                        {%endfor%}
+                    </select>
                 </div>
                 <div class="form-group">
                     <textarea id="mensaje" name="mensaje" placeholder="Mensaje" required></textarea>
                 </div>
                 <div class="form-group">
-                    <button  class="send-button-comentarios" type="submit">ENVIAR COMENTARIO</button>
+                    <button class="send-button-comentarios" type="submit">ENVIAR COMENTARIO</button>
                 </div>
             </form>
         </div>

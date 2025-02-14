@@ -34,6 +34,7 @@ def index(request):
 
     servicios = Servicio.objects.all()
     partners = Partner.objects.all()
+    puestos = Puesto.objects.exclude(nombre__in=['Propietario de la Compañía','Company Owner']) 
 
     # Traducir los servicios
     for servicio in servicios:
@@ -44,6 +45,10 @@ def index(request):
     for partner in partners:
         translated = get_translated_fields(partner, idioma)
         partner.nombre = translated.get('nombre', partner.nombre)
+
+    for puesto in puestos:
+        translated = get_translated_fields(puesto, idioma)
+        puesto.nombre = translated.get('nombre', puesto.nombre)
     
     imagenes_de_comentarios = ImagenesDeComentario.objects.all()
 
@@ -51,7 +56,8 @@ def index(request):
         'miembros': miembros,
         'servicios': servicios,
         'partners': partners,
-        'imagenes_de_comentarios':imagenes_de_comentarios
+        'puestos':puestos,
+        'imagenes_de_comentarios':imagenes_de_comentarios,
     })
 
 # Vista de miembros
@@ -115,6 +121,10 @@ def contact(request):
 
 def comentarios(request):
     if request.method == 'POST':
-        pass
-    else:
-        pass
+        nombre = request.POST["nombre"]
+        puesto = request.POST["puesto"]
+        mensaje = request.POST["mensaje"]
+        print(f"mensaje de {nombre} con puesto {puesto}: {mensaje}")
+
+        return redirect('index')
+    return render(request, "website/index.html")
