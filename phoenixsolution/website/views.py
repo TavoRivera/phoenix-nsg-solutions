@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Miembro, Puesto, Servicio, Partner, ImagenesDeComentario
+from .models import Miembro, Puesto, Servicio, Partner, ImagenesDeComentario, Comentario
 from django.views.decorators.csrf import csrf_exempt
 from .templatetags.custom_filters import format_phone
 from django.template.loader import render_to_string
@@ -34,6 +34,8 @@ def index(request):
 
     servicios = Servicio.objects.all()
     partners = Partner.objects.all()
+    comentarios = Comentario.objects.filter(respuesta_a=None)
+    respuestas = Comentario.objects.exclude(respuesta_a=None)
     puestos = Puesto.objects.exclude(nombre__in=['Propietario de la Compañía','Company Owner']) 
 
     # Traducir los servicios
@@ -57,6 +59,8 @@ def index(request):
         'servicios': servicios,
         'partners': partners,
         'puestos':puestos,
+        'comentarios':comentarios,
+        'respuestas':respuestas,
         'imagenes_de_comentarios':imagenes_de_comentarios,
     })
 

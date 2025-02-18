@@ -113,7 +113,7 @@ Inicio
             <h2>Comentarios</h2>
             <!-- Lista de comentarios -->
             <div class="comentarios-list">
-                <div class="comentario">
+                <!-- <div class="comentario">
                     <h3>Nombre del Usuario</h3>
                     <p><strong>Puesto del Usuario</strong></p>
                     <p>Mensaje del usuario...</p>
@@ -122,13 +122,32 @@ Inicio
                     <h3>Nombre del Usuario</h3>
                     <p><strong>Puesto del Usuario</strong></p>
                     <p>Mensaje del usuario...</p>
-                    <!-- Respuesta -->
                     <div class="reply">
                         <h3>Admin</h3>
                         <p>Gracias por tu comentario.</p>
                     </div>
-                </div>
+                </div> -->
                 <!-- Repite esta estructura para cada comentario -->
+                {% if comentarios %}
+                    {% for comentario in comentarios %}
+                        <div class="comentario">
+                            <h3>{{ comentario.nombre }}</h3>
+                            <p><strong>{{ comentario.puesto }}</strong></p>
+                            <p>{{ comentario.mensaje }}</p>
+                            
+                            <!-- Respuestas -->
+                            {% for respuesta in comentario.respuestas.all %}
+                                <div class="reply">
+                                    <h3>{{ respuesta.nombre }}</h3>
+                                    <p><strong>{{ respuesta.puesto }}</strong></p>
+                                    <p>{{ respuesta.mensaje }}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>Todavía no hay comentarios</p>
+                {% endif %}
             </div>
             <form action="{% url 'comentarios' %}" method="post">
                 {% csrf_token %}

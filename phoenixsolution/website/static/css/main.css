@@ -1399,6 +1399,8 @@ select:hover {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+
 }
 
 .slide img {
@@ -1407,6 +1409,17 @@ select:hover {
     object-fit: cover; /* Asegura que la imagen siempre llene el contenedor */
     object-position: center; /* Centra la imagen horizontal y verticalmente */
     border-radius: 7px 0 0 7px;
+}
+.slide::before {
+    content: ''; /* Necesario para que el pseudo-elemento se muestre */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.315); /* Negro tenue con 50% de opacidad */
+    border-radius: 7px 0 0 7px; /* Asegura que el borde redondeado coincida con la imagen */
+    pointer-events: none; /* Permite interactuar con la imagen debajo */
 }
 
 /* Sección de comentarios */
