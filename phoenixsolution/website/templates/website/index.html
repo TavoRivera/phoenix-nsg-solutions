@@ -110,7 +110,7 @@ Inicio
 
         <!-- Sección de comentarios -->
         <div class="comentarios-container">
-            <h2>Comentarios</h2>
+            <h2>{% trans 'Comentarios' %}</h2>
             <div class="comentarios-list" id="comentarios-list">
                 {% if comentarios %}
                     {% for comentario in comentarios %}
@@ -131,29 +131,29 @@ Inicio
                         </div>
                     {% endfor %}
                 {% else %}
-                    <p>Todavía no hay comentarios</p>
+                    <p>{% trans 'Todavía no hay comentarios'  %}</p>
                 {% endif %}
             </div>
             <form id="comentario-form">
                 {% csrf_token %}
                 <input type="hidden" id="respuesta_a" name="respuesta_a">
-                <label class="label-formulario-comentarios">Queremos saber tu opinión, deja acá tu comentario</label>
+                <label class="label-formulario-comentarios">{% trans 'Queremos saber tu opinión, deja acá tu comentario' %}</label>
                 <div class="form-group">
                     <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
                 </div>
                 <div class="form-group">
                     <select id="puesto" name="puesto" required>
-                        <option value="">--Seleccione el cargo ocupado--</option>
+                        <option value="">{% trans '--Seleccione el cargo ocupado--' %}</option>
                         {% for puesto in puestos %}
                         <option value="{{ puesto.nombre }}">{{ puesto.nombre }}</option>
                         {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
-                    <textarea id="mensaje" name="mensaje" placeholder="Mensaje" required></textarea>
+                    <textarea id="mensaje" name="mensaje" placeholder="{% trans 'Mensaje' %}" required></textarea>
                 </div>
                 <div class="form-group">
-                    <button class="send-button-comentarios" type="submit">ENVIAR COMENTARIO</button>
+                    <button class="send-button-comentarios" type="submit">{% trans 'ENVIAR COMENTARIO' %}</button>
                 </div>
             </form>
         </div>
@@ -225,12 +225,6 @@ Inicio
         <textarea class="form-control" placeholder="{% trans 'Mensaje' %}" name="message" required></textarea>
         <button class="send-button" id="submit" type="submit"  value="Send email">{% trans 'ENVIAR' %}</button>
     </form>
-    <script>
-    document.getElementById("contact-form").addEventListener("submit", function(event) {
-        console.log("Formulario intentando enviarse...");  // Verificar en consola
-    });
-    </script>
-    
 
     <div class="direct-contact-container">
       <ul class="contact-list">
@@ -238,12 +232,11 @@ Inicio
         <li class="list-item"><i class="fa fa-map-marker"></i> <a href="https://www.google.com/maps/place/Loose+weight,+1490+W+49th+Pl,+Hialeah,+FL+33012,+EE.+UU./@25.8672886,-80.3128866,1209m/data=!3m1!1e3!4m6!3m5!1s0x88d9bafa569b8bb9:0x2f9e10a35407549!8m2!3d25.8673529!4d-80.3125677!16s%2Fg%2F11c3q3ltt3?entry=ttu&g_ep=EgoyMDI1MDIwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">
             Loose weight, 1490 W 49th Pl, Hialeah, FL 33012, EE. UU.
         </a></li>
-        <li class="list-item"><i class="fa fa-phone"></i> <a href="tel:1-307-299-3885">(307) 299 - 3885</a></li>
-        <li class="list-item"><i class="fa fa-envelope"></i> <a href="mailto:Lphoenixnsg@gmail.com">Lphoenixnsg@gmail.com</a></li>
+        <li class="list-item"><i class="fa fa-phone"></i> <a href="tel:1-307-696-5034">(307) 696 - 5034</a></li>
+        <li class="list-item"><i class="fa fa-envelope"></i> <a href="mailto:Bphoenixnsg@gmail.com">Bphoenixnsg@gmail.com</a></li>
       </ul>
       <hr>
       <ul class="social-media-list">
-        <li><a href="#"><i class="bi bi-github contact-icon"></i></a></li>
         <li><a href="#"><i class="bi bi-facebook contact-icon"></i></a></li>
         <li><a href="#"><i class="bi bi-instagram contact-icon"></i></a></li>
         <li><a href="#"><i class="bi bi-tiktok contact-icon"></i></a></li>

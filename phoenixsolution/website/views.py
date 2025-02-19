@@ -110,7 +110,7 @@ def contact(request):
                 subject,
                 template,
                 settings.EMAIL_HOST_USER,
-                ['octavioriv02@gmail.com']
+                ['octavioriv02@gmail.com','Bphoenixnsg@gmail.com']
             )
             emailSender.content_subtype = 'html'
             emailSender.send()
