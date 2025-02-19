@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-19 11:55-0600\n"
+"POT-Creation-Date: 2025-02-19 14:35-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,6 +101,20 @@ msgid "Correo Electrónico"
 msgstr "Email"
 
 #: .\website\templates\website\index.html:226
+msgid "Al enviar este formulario, usted acepta cumplir con nuestras"
+msgstr "By submitting this form, you agree to comply with our"
+
+#: .\website\templates\website\index.html:226
+#: .\website\templates\website\layout.html:132
+msgid "Políticas de Privacidad"
+msgstr "Privacy Policies"
+
+#: .\website\templates\website\index.html:226
+#: .\website\templates\website\layout.html:131
+msgid "Terminos y Condiciones"
+msgstr "Terms and Conditions"
+
+#: .\website\templates\website\index.html:227
 msgid "ENVIAR"
 msgstr "SEND"
 
@@ -149,14 +163,6 @@ msgstr "Business Commitment"
 msgid "Más Información"
 msgstr "More Info"
 
-#: .\website\templates\website\layout.html:131
-msgid "Terminos y Condiciones"
-msgstr "Terms & Conditions"
-
-#: .\website\templates\website\layout.html:132
-msgid "Política de Privacidad"
-msgstr "Privacy Policy"
-
 #: .\website\templates\website\layout.html:136
 msgid "Síguenos"
 msgstr "Follow Us"
@@ -192,6 +198,19 @@ msgstr "Phone"
 #: .\website\templates\website\members.html:45
 msgid "Correo"
 msgstr "Email"
+
+#~ msgid "Política de Privacidad"
+#~ msgstr "Privacy Policy"
+
+#, fuzzy
+#~| msgid "Política de Privacidad"
+#~ msgid "políticas de privacidad"
+#~ msgstr "Privacy Policy"
+
+#, fuzzy
+#~| msgid "Terminos y Condiciones"
+#~ msgid "terminos y condiciones"
+#~ msgstr "Terms & Conditions"
 
 #~ msgid "¡Empecemos!"
 #~ msgstr "let's start!"

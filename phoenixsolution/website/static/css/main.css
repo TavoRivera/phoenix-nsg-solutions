@@ -736,6 +736,38 @@ ul {
     margin: 0;
 	text-align: center;
 }
+.file-upload {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: 10px 0;
+}
+
+.file-input {
+    position: absolute;
+    opacity: 0;
+    width: 80%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file-label {
+    background-color: #f5a623;
+    color: white;
+    padding: 5px 7px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+    width: 80%;
+}
+
+.file-label:hover {
+    background-color: #d41d1d;
+}
 @media (max-width: 768px) {
     .contact-info {
         flex-direction: column; /* Cambia a columna en móviles */
@@ -1088,6 +1120,7 @@ ul {
     padding: 3rem;
     background-color: #f9f9f9;
     
+    
 }
 
 /* 📌 Contenedor del título - 30% en PC */
@@ -1234,8 +1267,13 @@ a.link-partner {
     align-items: center;
   }
   .form-title{
-    color: #666;
+    color: #777;
     font-size: 0.9rem;
+
+  }
+  .form-conditions{
+    color: #666;
+    font-size: 0.7rem;
 
   }
 

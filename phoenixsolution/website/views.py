@@ -87,14 +87,15 @@ def members(request):
 # Vista de contacto
 def contact(request):
     if request.method == 'POST':
-        name = request.POST["name"]
-        email = request.POST["email"]
-        phone = request.POST["phone"]
-        message = request.POST["message"]
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        phone = request.POST.get("phone")
+        message = request.POST.get("message")
         subject = f"Nueva solicitud de {name} recibida desde el sitio web"
+        attachment = request.FILES.get("attachment")  # Obtiene el archivo adjunto
 
         # Depuración: Ver datos en consola
-        print(f"📩 Nombre: {name}, Email: {email}, Mensaje: {message}")
+        print(f"📩 Nombre: {name}, Email: {email}, Mensaje: {message}, Archivo adjunto: {attachment}")
 
         # Renderizar la plantilla del email
         template = render_to_string('website/email.html', {
@@ -110,14 +111,19 @@ def contact(request):
                 subject,
                 template,
                 settings.EMAIL_HOST_USER,
-                ['octavioriv02@gmail.com','Bphoenixnsg@gmail.com']
+                ['octavioriv02@gmail.com']
             )
-            emailSender.content_subtype = 'html'
+            emailSender.content_subtype = 'html'  # Establece el contenido del correo como HTML
+
+            # Adjuntar el archivo si existe
+            if attachment:
+                emailSender.attach(attachment.name, attachment.read(), attachment.content_type)
+
             emailSender.send()
 
             # Mensaje de éxito
-            messages.success(request, 'Se ha enviado tu solicitud. Pronto nos pondremos en contacto contigo.')
-        
+            messages.success(request, '✅ Se ha enviado tu solicitud. Pronto nos pondremos en contacto contigo.')
+
         except Exception as e:
             # Mensaje de error
             messages.error(request, f'❌ Error al enviar el mensaje: {str(e)}')

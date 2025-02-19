@@ -174,7 +174,7 @@ Inicio
 
                 // Opcional: Enfocar el área de texto para escribir la respuesta
                 document.getElementById("mensaje").focus();
-                document.getElementById("mensaje").style.border = "2px solid yellow";
+                document.getElementById("mensaje").style.border = "2px solid #ff680b";
 
             });
         });
@@ -215,16 +215,38 @@ Inicio
 <section id="contact">
   <p class="encabezados">{% trans 'Contacto' %}</p>
   <div class="contact-wrapper">
-    <form action="{% url 'contact' %}" method="POST" class="form-horizontal">
+    <form action="{% url 'contact' %}" method="POST" enctype="multipart/form-data" class="form-horizontal">
         <p class="form-title">{% trans '¿Quieres ser parte de nosotros? Rellena los campos de abajo y nos estaremos comunicando contigo' %}</p>
-
+    
         {% csrf_token %}
         <input type="text" class="form-control" id="name" placeholder="{% trans 'Nombre y Apellido' %}" name="name" required>
         <input type="email" class="form-control" id="email" placeholder="{% trans 'Correo Electrónico' %}" name="email" required>
-        <input type="tel"  class="form-control"  id="phone" name="phone" placeholder="(123) 456-7890" required>
+        <input type="tel" class="form-control" id="phone" name="phone" placeholder="(123) 456-7890" required>
         <textarea class="form-control" placeholder="{% trans 'Mensaje' %}" name="message" required></textarea>
-        <button class="send-button" id="submit" type="submit"  value="Send email">{% trans 'ENVIAR' %}</button>
+        
+        <!-- Estilizado input de archivos -->
+        <div class="file-upload">
+            <input type="file" id="attachment" name="attachment" class="file-input">
+            <label for="attachment" class="file-label">
+                <span class="file-text">{% trans 'Adjunta tu cv' %}</span>
+            </label>
+        </div>
+    
+        <p class="form-conditions">{% trans 'Al enviar este formulario, usted acepta cumplir con nuestras' %} 
+            <a href="#" style="color: #f5a623;">{% trans 'Políticas de Privacidad' %}</a> & 
+            <a href="#" style="color: #f5a623;">{% trans 'Términos y Condiciones' %}</a>
+        </p>
+        
+        <button class="send-button" id="submit" type="submit" value="Send email">{% trans 'ENVIAR' %}</button>
     </form>
+    <script>
+        document.getElementById("attachment").addEventListener("change", function() {
+            let fileName = this.files.length > 0 ? this.files[0].name : "{% trans 'Adjunta tu cv' %}";
+            document.querySelector(".file-text").textContent = fileName;
+        });
+    </script>
+
+    
 
     <div class="direct-contact-container">
       <ul class="contact-list">
