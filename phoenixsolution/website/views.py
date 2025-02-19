@@ -8,6 +8,9 @@ from django.core.mail import EmailMessage
 from django.conf import settings
 from django.contrib import messages
 from django.utils.translation import get_language
+from django.http import JsonResponse
+
+
 
 # Función para obtener los campos traducidos según el idioma
 def get_translated_fields(obj, idioma):
@@ -34,8 +37,8 @@ def index(request):
 
     servicios = Servicio.objects.all()
     partners = Partner.objects.all()
-    comentarios = Comentario.objects.filter(respuesta_a=None)
-    respuestas = Comentario.objects.exclude(respuesta_a=None)
+    comentarios = Comentario.objects.filter(respuesta_a=None).order_by('-fecha')
+    respuestas = Comentario.objects.exclude(respuesta_a=None).order_by('-fecha')
     puestos = Puesto.objects.exclude(nombre__in=['Propietario de la Compañía','Company Owner']) 
 
     # Traducir los servicios
@@ -123,12 +126,47 @@ def contact(request):
 
     return render(request, "website/index.html")
 
-def comentarios(request):
-    if request.method == 'POST':
-        nombre = request.POST["nombre"]
-        puesto = request.POST["puesto"]
-        mensaje = request.POST["mensaje"]
-        print(f"mensaje de {nombre} con puesto {puesto}: {mensaje}")
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .models import Comentario, Puesto  # Asegúrate de importar los modelos correctos
 
-        return redirect('index')
-    return render(request, "website/index.html")
+@csrf_exempt  # Solo si no estás usando CSRF tokens, en caso contrario, asegúrate de incluirlos en el frontend
+def agregar_comentario(request):
+    if request.method == "POST":
+        nombre = str(request.POST.get("nombre", "").strip())
+        puesto_nombre = str(request.POST.get("puesto", "").strip())
+        mensaje = str(request.POST.get("mensaje", "").strip())
+        respuesta_a_id = request.POST.get("respuesta_a", "").strip()
+
+        # Obtener o crear una instancia de Puesto
+        puesto, creado = Puesto.objects.get_or_create(nombre=puesto_nombre)
+
+        # Obtener la instancia de Comentario si se proporciona un ID de respuesta
+        respuesta_a = None
+        if respuesta_a_id:
+            try:
+                respuesta_a = Comentario.objects.get(id=int(respuesta_a_id))
+            except Comentario.DoesNotExist:
+                return JsonResponse({"error": "El comentario al que se responde no existe"}, status=400)
+
+        # Crear el comentario con la instancia de Puesto y la instancia de Comentario (si existe)
+        comentario = Comentario.objects.create(
+            nombre=nombre,
+            puesto=puesto,  # Asignar la instancia de Puesto
+            mensaje=mensaje,
+            respuesta_a=respuesta_a  # Asignar la instancia de Comentario (o None si no existe)
+        )
+
+        print("################################")
+        print(f"Comentario creado con ID: {comentario.id}")
+
+        return JsonResponse({
+            "id": comentario.id,
+            "nombre": nombre,
+            "puesto": puesto.nombre,  # Devolver el nombre del puesto
+            "mensaje": mensaje,
+            "respuesta_a": respuesta_a.id if respuesta_a else None  # Devolver el ID del comentario respondido o None
+        })
+
+    return JsonResponse({"error": "Método no permitido"}, status=405)
+

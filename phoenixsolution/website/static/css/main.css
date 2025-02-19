@@ -1450,12 +1450,35 @@ select:hover {
 }
 
 .comentario {
+    position: relative; /* Necesario para posicionar el botón de manera absoluta */
     background: #ffffff;
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 7px;
     box-shadow: 0 2px 4px rgba(48, 13, 0, 0.1);
     text-align: left; /* Justificado a la izquierda */
+}
+.responder-btn {
+    position: absolute; /* Posiciona el botón de manera absoluta dentro de .comentario */
+    top: 10px; /* Distancia desde la parte superior */
+    right: 10px; /* Distancia desde la parte derecha */
+    background-color: #f1c80f;
+    color: white;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espacio entre el ícono y el texto (si lo hay) */
+}
+
+.responder-btn:hover {
+    background-color: #f5a623; /* Cambia el color al pasar el mouse */
+}
+
+.responder-btn i {
+    font-size: 14px; /* Tamaño del ícono */
 }
 
 .comentario h3 {

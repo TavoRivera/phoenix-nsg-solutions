@@ -85,11 +85,11 @@ Inicio
         <!-- Carrusel de fotos -->
         <div class="carrusel-container">
             <div class="carrusel">
-                {%for imagen in imagenes_de_comentarios %}
+                {% for imagen in imagenes_de_comentarios %}
                 <div class="slide">
                     <img src="{{ imagen.imagen.url }}" alt="{{ imagen.nombre }}">
                 </div>
-                {%endfor%}
+                {% endfor %}
             </div>
         </div>
         <script>
@@ -97,45 +97,30 @@ Inicio
             const slides = document.querySelectorAll(".slide");
             let index = 0;
             const totalSlides = slides.length;
-            const intervalTime = 4000; // Cambia de imagen cada 5 segundos
+            const intervalTime = 4000;
 
             function moverCarrusel() {
-                index = (index + 1) % totalSlides; // Mueve al siguiente slide, vuelve a 0 si es el último
-                const offset = -index * 100; // Calcula el desplazamiento en porcentaje
+                index = (index + 1) % totalSlides;
+                const offset = -index * 100;
                 carrusel.style.transform = `translateX(${offset}%)`;
             }
 
-            setInterval(moverCarrusel, intervalTime); // Inicia la animación automática
+            setInterval(moverCarrusel, intervalTime);
         </script>
 
         <!-- Sección de comentarios -->
         <div class="comentarios-container">
             <h2>Comentarios</h2>
-            <!-- Lista de comentarios -->
-            <div class="comentarios-list">
-                <!-- <div class="comentario">
-                    <h3>Nombre del Usuario</h3>
-                    <p><strong>Puesto del Usuario</strong></p>
-                    <p>Mensaje del usuario...</p>
-                </div>
-                <div class="comentario">
-                    <h3>Nombre del Usuario</h3>
-                    <p><strong>Puesto del Usuario</strong></p>
-                    <p>Mensaje del usuario...</p>
-                    <div class="reply">
-                        <h3>Admin</h3>
-                        <p>Gracias por tu comentario.</p>
-                    </div>
-                </div> -->
-                <!-- Repite esta estructura para cada comentario -->
+            <div class="comentarios-list" id="comentarios-list">
                 {% if comentarios %}
                     {% for comentario in comentarios %}
-                        <div class="comentario">
+                        <div class="comentario" data-id="{{ comentario.id }}">
                             <h3>{{ comentario.nombre }}</h3>
                             <p><strong>{{ comentario.puesto }}</strong></p>
                             <p>{{ comentario.mensaje }}</p>
+                            <button class="responder-btn" data-id="{{ comentario.id }}">        <i class="fas fa-reply"></i> <!-- Ícono de flecha (reply) -->
+                            </button>
                             
-                            <!-- Respuestas -->
                             {% for respuesta in comentario.respuestas.all %}
                                 <div class="reply">
                                     <h3>{{ respuesta.nombre }}</h3>
@@ -149,18 +134,19 @@ Inicio
                     <p>Todavía no hay comentarios</p>
                 {% endif %}
             </div>
-            <form action="{% url 'comentarios' %}" method="post">
+            <form id="comentario-form">
                 {% csrf_token %}
+                <input type="hidden" id="respuesta_a" name="respuesta_a">
                 <label class="label-formulario-comentarios">Queremos saber tu opinión, deja acá tu comentario</label>
                 <div class="form-group">
                     <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
                 </div>
                 <div class="form-group">
-                    <select id="puesto" name="puesto" type="select" placeholder="Cargo ocupado" required>
+                    <select id="puesto" name="puesto" required>
                         <option value="">--Seleccione el cargo ocupado--</option>
                         {% for puesto in puestos %}
-                        <option value="{{puesto.nombre}}">{{puesto.nombre}}</option>
-                        {%endfor%}
+                        <option value="{{ puesto.nombre }}">{{ puesto.nombre }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
@@ -173,6 +159,58 @@ Inicio
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const responderBotones = document.querySelectorAll(".responder-btn");
+
+        responderBotones.forEach((boton) => {
+            boton.addEventListener("click", function () {
+                // Obtener el ID del comentario al que se responde
+                const comentarioId = this.getAttribute("data-id");
+
+                // Asignar el ID al campo oculto del formulario
+                document.getElementById("respuesta_a").value = comentarioId;
+
+                // Opcional: Enfocar el área de texto para escribir la respuesta
+                document.getElementById("mensaje").focus();
+                document.getElementById("mensaje").style.border = "2px solid yellow";
+
+            });
+        });
+
+        document.getElementById("comentario-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            let formData = new FormData(this);
+
+            fetch("{% url 'agregar_comentario' %}", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "X-CSRFToken": formData.get("csrfmiddlewaretoken"),
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.respuesta_a) {
+                    let parent = document.querySelector(`[data-id="${data.respuesta_a}"] .respuestas`) || document.querySelector(`[data-id="${data.respuesta_a}"]`);
+                    parent.innerHTML += `<div class="reply"><h3>${data.nombre}</h3><p><strong>${data.puesto}</strong></p><p>${data.mensaje}</p></div>`;
+                } else {
+                    let comentarioList = document.getElementById("comentarios-list");
+                    comentarioList.innerHTML = `<div class="comentario" data-id="${data.id}">
+                        <h3>${data.nombre}</h3>
+                        <p><strong>${data.puesto}</strong></p>
+                        <p>${data.mensaje}</p>
+                        <button class="responder-btn" data-id="${data.id}"> <i class="fas fa-reply"></i></button>
+                        <div class="respuestas"></div>
+                    </div>` + comentarioList.innerHTML;
+                }
+                document.getElementById("comentario-form").reset();
+            });
+        });
+    });
+</script>
+
 
 <section id="contact">
   <p class="encabezados">{% trans 'Contacto' %}</p>
