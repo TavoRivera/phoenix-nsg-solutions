@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-12 18:04+0000\n"
+"POT-Creation-Date: 2025-02-19 11:55-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,129 +19,154 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
 "1 : 2;\n"
 
-#: phoenixsolution/settings.py:96
+#: .\phoenixsolution\settings.py:96
 msgid "Español"
 msgstr "Español"
 
-#: phoenixsolution/settings.py:97
+#: .\phoenixsolution\settings.py:97
 msgid "English"
 msgstr "Inglés"
 
-#: website/templates/website/index.html:16
+#: .\website\templates\website\index.html:16
 msgid "En Phoenix NSG Solutions"
 msgstr ""
 
-#: website/templates/website/index.html:17
+#: .\website\templates\website\index.html:17
 msgid ""
 "Juntos construimos un futuro. Crece y alcanza el exito profesional con "
 "nosotros"
 msgstr ""
 
-#: website/templates/website/index.html:39
+#: .\website\templates\website\index.html:39
 msgid "Servicios que ofrecemos"
 msgstr ""
 
-#: website/templates/website/index.html:62
+#: .\website\templates\website\index.html:62
 msgid "Nuestros Socios Comerciales"
 msgstr ""
 
-#: website/templates/website/index.html:72
+#: .\website\templates\website\index.html:72
 msgid "Conoce más sobre ellos aquí"
 msgstr ""
 
-#: website/templates/website/index.html:83
-#: website/templates/website/layout.html:35
-#: website/templates/website/members.html:37
+#: .\website\templates\website\index.html:113
+msgid "Comentarios"
+msgstr ""
+
+#: .\website\templates\website\index.html:134
+msgid "Todavía no hay comentarios"
+msgstr ""
+
+#: .\website\templates\website\index.html:140
+msgid "Queremos saber tu opinión, deja acá tu comentario"
+msgstr ""
+
+#: .\website\templates\website\index.html:142
+msgid "Nombre"
+msgstr ""
+
+#: .\website\templates\website\index.html:146
+msgid "--Seleccione el cargo ocupado--"
+msgstr ""
+
+#: .\website\templates\website\index.html:153
+#: .\website\templates\website\index.html:225
+msgid "Mensaje"
+msgstr ""
+
+#: .\website\templates\website\index.html:156
+msgid "ENVIAR COMENTARIO"
+msgstr ""
+
+#: .\website\templates\website\index.html:216
+#: .\website\templates\website\layout.html:35
+#: .\website\templates\website\members.html:37
 msgid "Contacto"
 msgstr ""
 
-#: website/templates/website/index.html:86
+#: .\website\templates\website\index.html:219
 msgid ""
 "¿Quieres ser parte de nosotros? Rellena los campos de abajo y nos estaremos "
 "comunicando contigo"
 msgstr ""
 
-#: website/templates/website/index.html:89
+#: .\website\templates\website\index.html:222
 msgid "Nombre y Apellido"
 msgstr ""
 
-#: website/templates/website/index.html:90
+#: .\website\templates\website\index.html:223
 msgid "Correo Electrónico"
 msgstr ""
 
-#: website/templates/website/index.html:92
-msgid "Mensaje"
-msgstr ""
-
-#: website/templates/website/index.html:93
+#: .\website\templates\website\index.html:226
 msgid "ENVIAR"
 msgstr ""
 
-#: website/templates/website/layout.html:32
+#: .\website\templates\website\layout.html:32
 msgid "Inicio"
 msgstr ""
 
-#: website/templates/website/layout.html:33
+#: .\website\templates\website\layout.html:33
 msgid "servicios"
 msgstr "servicios"
 
-#: website/templates/website/layout.html:34
+#: .\website\templates\website\layout.html:34
 msgid "Nuestro Equipo"
 msgstr "Nuestro Equipo"
 
-#: website/templates/website/layout.html:81
+#: .\website\templates\website\layout.html:81
 msgid "Se ha enviado tu solicitud. Pronto nos pondremos en contacto contigo."
 msgstr ""
 
-#: website/templates/website/layout.html:109
+#: .\website\templates\website\layout.html:109
 msgid "¿Quieres ser parte de nuestro equipo?"
 msgstr ""
 
-#: website/templates/website/layout.html:110
-msgid "¡Empecemos!"
-msgstr ""
-
-#: website/templates/website/layout.html:111
+#: .\website\templates\website\layout.html:110
 msgid "Contáctanos"
 msgstr ""
 
-#: website/templates/website/layout.html:122
+#: .\website\templates\website\layout.html:121
 msgid "Compañía"
 msgstr ""
 
-#: website/templates/website/layout.html:124
+#: .\website\templates\website\layout.html:123
 msgid "Sobre Nosotros"
 msgstr ""
 
-#: website/templates/website/layout.html:125
-msgid "Carreras"
+#: .\website\templates\website\layout.html:124
+msgid "Oportunidades"
 msgstr ""
 
-#: website/templates/website/layout.html:129
+#: .\website\templates\website\layout.html:125
+msgid "Compromiso Empresarial"
+msgstr ""
+
+#: .\website\templates\website\layout.html:129
 msgid "Más Información"
 msgstr ""
 
-#: website/templates/website/layout.html:131
+#: .\website\templates\website\layout.html:131
 msgid "Terminos y Condiciones"
 msgstr ""
 
-#: website/templates/website/layout.html:132
+#: .\website\templates\website\layout.html:132
 msgid "Política de Privacidad"
 msgstr ""
 
-#: website/templates/website/layout.html:136
+#: .\website\templates\website\layout.html:136
 msgid "Síguenos"
 msgstr ""
 
-#: website/templates/website/layout.html:147
+#: .\website\templates\website\layout.html:146
 msgid "Contacto con el desarrollador"
 msgstr ""
 
-#: website/templates/website/members.html:12
+#: .\website\templates\website\members.html:12
 msgid "Nuestro Equipo en Phoenix NSG Solutions"
 msgstr ""
 
-#: website/templates/website/members.html:13
+#: .\website\templates\website\members.html:13
 msgid ""
 "Nos enfocamos en desarrollar a nuestro equipo con capacitaciones y tutorías "
 "continuas, lo que significa que nunca dejamos de aprender y crecer. Durante "
@@ -149,14 +174,14 @@ msgid ""
 "Cliente, Gestion, Marketing, Ventas y más..."
 msgstr ""
 
-#: website/templates/website/members.html:21
+#: .\website\templates\website\members.html:21
 msgid "Conoce a los miembros de nuestro equipo"
 msgstr ""
 
-#: website/templates/website/members.html:40
+#: .\website\templates\website\members.html:40
 msgid "Teléfono"
 msgstr ""
 
-#: website/templates/website/members.html:45
+#: .\website\templates\website\members.html:45
 msgid "Correo"
 msgstr ""

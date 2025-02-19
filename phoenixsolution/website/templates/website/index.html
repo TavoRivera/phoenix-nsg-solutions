@@ -97,7 +97,7 @@ Inicio
             const slides = document.querySelectorAll(".slide");
             let index = 0;
             const totalSlides = slides.length;
-            const intervalTime = 4000;
+            const intervalTime = 5000;
 
             function moverCarrusel() {
                 index = (index + 1) % totalSlides;
@@ -139,7 +139,7 @@ Inicio
                 <input type="hidden" id="respuesta_a" name="respuesta_a">
                 <label class="label-formulario-comentarios">{% trans 'Queremos saber tu opinión, deja acá tu comentario' %}</label>
                 <div class="form-group">
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+                    <input type="text" id="nombre" name="nombre" placeholder="{% trans 'Nombre' %}" required>
                 </div>
                 <div class="form-group">
                     <select id="puesto" name="puesto" required>
